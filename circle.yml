@@ -18,4 +18,4 @@ dependencies:
     - ./node_modules/.bin/chimp --path=content # there are no tests in content
 
 test:
-  - ../node_modules/.bin/chimp --watch
+  - "./node_modules/.bin/chimp --watch"
