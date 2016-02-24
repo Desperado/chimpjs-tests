@@ -1,5 +1,5 @@
 #@ignore
-#@watch
+@watch
 Feature: Submit an enquiry
 
   As a User

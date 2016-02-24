@@ -1,19 +1,14 @@
-General:
-  build_dir: features
+machine:
+  java:
+    version: oraclejdk8
+  node:
+    version: 5.2.0
 
 dependencies:
   cache_directories:
     - "node_modules"
     - "~/.npm"
     - "~/_opt"
-    - "~/mongodb-linux-x86_64-2.6.4"
-    - "~/.meteor"
-    - "src/.meteor/local/build"
-    - "src/.meteor/local/bundler-cache"
-    - "src/.meteor/local/db"
-    - "src/.meteor/local/isopacks"
-    - "src/.meteor/local/plugin-cache"
-    - "src/.meteor/local/mirrors"
 
   override:
     # Cache npm deps
@@ -23,11 +18,4 @@ dependencies:
     - ./node_modules/.bin/chimp --path=content # there are no tests in content
 
 test:
-  pre:
-    - mkdir -p $CIRCLE_TEST_REPORTS/cucumber
-
-  override:
-    - npm test:
-        environment:
-          MONGO_URL: "mongodb://localhost:27017/meteor"
-          CUCUMBER_JSON_OUTPUT: "$CIRCLE_TEST_REPORTS/cucumber/chrome.cucumber"
+  - ../node_modules/.bin/chimp --watch

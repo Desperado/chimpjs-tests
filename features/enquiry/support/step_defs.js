@@ -1,10 +1,5 @@
-var pageObjects = require("../../lib/pageObjects.js")
-// var $ = require('jquery')(require("jsdom").jsdom().parentWindow);
-var jsdom = require('jsdom').jsdom;
-var document = jsdom('<html></html>', {});
-var window = document.defaultView;
-var $ = require('jquery')(window);
-// var $ = require('jquery');
+var common = require("../../lib/pageObjects.js")
+
 module.exports = function() {
 
 this.Given(/^I have visited contact us$/, function () {
@@ -55,16 +50,16 @@ this.Then(/^I clear the cache$/, function () {
 
 
 this.When(/^I click on the "([^"]*)" checkbox$/, function (selector) {
-  client.click(selectorMapping[selector]);
+  client.click(common.pageObjects[selector]);
 });
 
 this.Then(/^I should see "([^"]*)" is a required field$/, function (selector) {
-  found = (client.getText(selectorMapping[selector]) == '*');
+  found = (client.getText(common.pageObjects[selector]) == '*');
   expect(found).toBe(true);
 });
 
 this.Then(/^I should not see "([^"]*)" is a required field$/, function (selector) {
-  found = client.isExisting(selectorMapping[selector]);
+  found = client.isExisting(common.pageObjects[selector]);
   expect(found).not.toBe(true);
 });
 
@@ -75,11 +70,11 @@ this.Given(/^I set the "([^"]*)" dropdown to display$/, function (arg1) {
 });
 
 this.Then(/^the "([^"]*)" hidden field should contain the value "([^"]*)"$/, function (selector, val) {
-  expect(client.getValue(selectorMapping[selector])).toContain(val);
+  expect(client.getValue(common.pageObjects[selector])).toContain(val);
 });
 
 this.Then(/^I click the "([^"]*)" progressive disclosure button$/, function (selector) {
-  client.click(selectorMapping[selector])
+  client.click(common.pageObjects[selector])
 });
 
 this.Given(/^I fill in the "([^"]*)" with 250 characters$/, function (selector) {
@@ -88,12 +83,12 @@ this.Given(/^I fill in the "([^"]*)" with 250 characters$/, function (selector) 
          "metus blandit placerat. Donec in laoreet nulla. " +
          "Phasellus vel est varius, suscipit nunc ut, ultrices dolor. Suspendisse sed.";
 
-  client.setValue(selectorMapping[selector], text);
+  client.setValue(common.pageObjects[selector], text);
 
 });
 
 this.Then(/^I should see "([^"]*)" in the hidden keyword$/, function (selector) {
-  expect(client.getValue(selectorMapping[selector])).toEqual('250characters');
+  expect(client.getValue(common.pageObjects[selector])).toEqual('250characters');
 });
 
 

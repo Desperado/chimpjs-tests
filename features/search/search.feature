@@ -1,5 +1,5 @@
 #@ignore
-#@watch
+@watch
 Feature: Search the Web
 
   As a User
@@ -153,6 +153,7 @@ Feature: Search the Web
     Then I should see text "Flight Centre Cba Flagship Brisbane : Your local Flight Centre Store" in the "title"
     And I should see a "storeMap" on the page
 
+  @focus
   Scenario: Submit a flight search from the homepage
     Given I am on the "home" page
     Then I fill in the "homeStartCity" field with "Sydney"
@@ -228,3 +229,15 @@ Feature: Search the Web
     | gsaToursTab |
     | gsaCruisesTab |
     | gsaGuidesTab |
+
+  @watch
+  Scenario Outline: Check validation on a search from the homepage
+    Given I am on the "home" page
+    When I click the "findFlightsButton"
+    Then I should see the message "This field is required" on the error "<error>"
+
+  Examples:
+    | error |
+    | homeEndCityError |
+    | homeStartDateError |
+    | homeEndDateError |

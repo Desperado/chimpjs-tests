@@ -1,7 +1,4 @@
-module.exports = function(){
-  cacheBust = '?' + (new Date).getTime()
-
-  selectorMapping = {
+exports.pageObjects = {
     // email: '#edit-contacttype-email',
     outBoundFlightsHeader: '#outboundFlights h2',
     emailCheckbox: '#edit-contacttype-email',
@@ -126,54 +123,59 @@ module.exports = function(){
     flightsStartCity: '#flights-dest-str-string-startCity',
     flightsEndCity: '#flights-dest-str-string-endCity',
     holidaysAirExpoint: '//*[@name="air_ex_points_list"]',
+    homeEndCityError: 'div.form-item-endCityStr label.error',
+    homeStartDateError: 'div.form-item-startDate label.error',
+    homeEndDateError: 'div.form-item-endDate label.error'
 
-  };
-  baseUrl = 'http://www.flightcentre.com.au';
-  url = {
-    home: '/',
-    flights: '/flights',
-    contactus: '/contact-us',
-    flights: '/flights',
-    flightsInternational: '/flights/international-flights',
-    holidays: '/holidays',
-    rail: '/rail',
-    tours: '/tours',
-    cruises: '/cruises',
-    careers: '/careers',
-    travelInsurance: '/travel-extras/insurance',
-    stores: '/stores',
-    businessClass: '/flights/class-of-travel/business-class#fndtn-business-class-fares',
-    flightsLondon: '/flights/london',
-    flightsLondonBusinessClass: '/flights/london/business',
-    flightsSydneyToLondonBusinessClass: '/flights/london/sydney/business',
-    flightsBrisbaneToSydneyBusinessClass: '/flights/sydney/brisbane/business',
-    flightsSydneyBusinessClass: '/flights/sydney/business',
-    flightsAuckland: '/flights/auckland',
-    flightsSydneyToAuckland: '/flights/auckland/sydney',
-    holidaysAuckland: '/holidays/auckland',
-    holidayPackageLondon: '/holidays/london/3947503',
-    firstClass: '/flights/class-of-travel/first-class',
-    mixedClassFlights: '/promotions/mixed-class-flights',
-    doubleDipFlights: '/promotions/double-dip-flights',
-    tripleDipFlights: '/promotions/triple-dip-flights',
-    weddingHoneymoons: '/holidays/wedding-honeymoon',
-    cruisesTypes: '/cruises/types-of-cruises',
-    beInspired: '/cruises/be-inspired',
-    worldCruises: '/cruises/world-cruises',
-    oceanCruises: '/cruises/ocean',
-    corporateCruises: '/cruises/corporate-cruises',
-    cruiseTours: '/cruises/tours',
-    cruiseWeddingHoneymoons: '/cruises/wedding-honeymoon',
-    cruisePackageAlaska: '/cruises/alaska/3340768',
-    singleCruises: '/cruises/singles',
-    gayLesbianCruises: '/cruises/gay-lesbian',
-    seniorCruises: '/cruises/seniors',
-    christmasMarketsCruises: '/cruises/be-inspired/christmas-markets',
-    baliFlightsGeneralSearch: '/travel/flights/general-search/bali',
-    tourPackageLasAngeles: 'tours/los-angeles/3463101',
-  };
+};
+
+var baseUrl = 'http://www.flightcentre.com.au';
+
+exports.siteSettings = {
+
+    home: baseUrl + '/',
+    flights: baseUrl + '/flights',
+    contactus: baseUrl + '/contact-us',
+    flights: baseUrl + '/flights',
+    flightsInternational: baseUrl + '/flights/international-flights',
+    holidays: baseUrl + '/holidays',
+    rail: baseUrl + '/rail',
+    tours: baseUrl + '/tours',
+    cruises: baseUrl + '/cruises',
+    careers: baseUrl + '/careers',
+    travelInsurance: baseUrl + '/travel-extras/insurance',
+    stores: baseUrl + '/stores',
+    businessClass: baseUrl + '/flights/class-of-travel/business-class#fndtn-business-class-fares',
+    flightsLondon: baseUrl + '/flights/london',
+    flightsLondonBusinessClass: baseUrl + '/flights/london/business',
+    flightsSydneyToLondonBusinessClass: baseUrl + '/flights/london/sydney/business',
+    flightsBrisbaneToSydneyBusinessClass: baseUrl + '/flights/sydney/brisbane/business',
+    flightsSydneyBusinessClass: baseUrl + '/flights/sydney/business',
+    flightsAuckland: baseUrl + '/flights/auckland',
+    flightsSydneyToAuckland: baseUrl + '/flights/auckland/sydney',
+    holidaysAuckland: baseUrl + '/holidays/auckland',
+    holidayPackageLondon: baseUrl + '/holidays/london/3947503',
+    firstClass: baseUrl + '/flights/class-of-travel/first-class',
+    mixedClassFlights: baseUrl + '/promotions/mixed-class-flights',
+    doubleDipFlights: baseUrl + '/promotions/double-dip-flights',
+    tripleDipFlights: baseUrl + '/promotions/triple-dip-flights',
+    weddingHoneymoons: baseUrl + '/holidays/wedding-honeymoon',
+    cruisesTypes: baseUrl + '/cruises/types-of-cruises',
+    beInspired: baseUrl + '/cruises/be-inspired',
+    worldCruises: baseUrl + '/cruises/world-cruises',
+    oceanCruises: baseUrl + '/cruises/ocean',
+    corporateCruises: baseUrl + '/cruises/corporate-cruises',
+    cruiseTours: baseUrl + '/cruises/tours',
+    cruiseWeddingHoneymoons: baseUrl + '/cruises/wedding-honeymoon',
+    cruisePackageAlaska: baseUrl + '/cruises/alaska/3340768',
+    singleCruises: baseUrl + '/cruises/singles',
+    gayLesbianCruises: baseUrl + '/cruises/gay-lesbian',
+    seniorCruises: baseUrl + '/cruises/seniors',
+    christmasMarketsCruises: baseUrl + '/cruises/be-inspired/christmas-markets',
+    baliFlightsGeneralSearch: baseUrl + '/travel/flights/general-search/bali',
+    tourPackageLasAngeles: baseUrl + 'tours/los-angeles/3463101'
+};
 
   // outBoundFlightsHeader = '#outboundFlights h2';
   // emailCheckbox = '#edit-contacttype-email';
   // phoneCheckbox= '#edit-contacttype-phone';
-}
