@@ -5,9 +5,6 @@ module.exports = function() {
 
   this.Given(/^I am on the "([^"]*)" page$/, function (location) {
     browser.url(common.siteSettings[location] + cacheBust);
-    client.execute(function(){
-      localStorage.clear();
-    });
   });
 
   this.Then(/^I clear the cache$/, function () {

@@ -14,7 +14,7 @@ Feature: Search the Web
     Then I select "newSouthWalesAutocomplete" from the autocomplete box
     Then I select a "datePickerStartDate" from the "flightsStartDate" datepicker
     Then I select a "datePickerEndDate" from the "flightsEndDate" datepicker
-    Then I submit the search
+    Then I click the "findFlightsButton"
     Then I should be on the "outBoundFlightsHeader" page
     And I should see some "flightsDomesticProducts"
 
@@ -30,7 +30,7 @@ Feature: Search the Web
     And I fill in the search destination field "sydney"
     Then I select "newSouthWalesAutocomplete" from the autocomplete box
     Then I select a "datePickerStartDate" from the "flightsStartDate" datepicker
-    Then I submit the search
+    Then I click the "findFlightsButton"
     Then I should be on the "outBoundFlightsHeader" page
     And I should see some "flightsDomesticProducts"
 
@@ -57,8 +57,6 @@ Feature: Search the Web
   Scenario Outline: Submit a search form from rail search page
     Given I am on the "<location>" page
     And I select the "Asia" from the "railDestination" selector
-    And I select the "[1501 TO 2000]" from the "railPriceField" selector
-    And I select the "[11 TO 14]" from the "railDurationField" selector
     Then I click the "railSearchButton"
     Then I should see "/rail/search" in the url
     And I should see some "products"
@@ -102,27 +100,27 @@ Feature: Search the Web
 #    Then I should see "THIS FIELD IS REQUIRED." on "startDateError"
 #    Then I should see "THIS FIELD IS REQUIRED." on "endDateError"
 
-  Scenario Outline: Validate text when not entering text into search fields on the flights page
-    Given I am on the "<location>" page
-    And I click the "findFlightsButton"
+#  Scenario Outline: Validate text when not entering text into search fields on the flights page
+#    Given I am on the "<location>" page
+#    And I click the "findFlightsButton"
     #Then I should see "THIS FIELD IS REQUIRED." on "startCityError"
-    Then I should see "THIS FIELD IS REQUIRED." on "endCityError"
-    Then I should see "THIS FIELD IS REQUIRED." on "startDateError"
-    Then I should see "THIS FIELD IS REQUIRED." on "endDateError"
+#    Then I should see "THIS FIELD IS REQUIRED." on "endCityError"
+#    Then I should see "THIS FIELD IS REQUIRED." on "startDateError"
+#    Then I should see "THIS FIELD IS REQUIRED." on "endDateError"
 
-  Examples:
-    | location |
-    | flights |
+#  Examples:
+#    | location |
+#    | flights |
 
-  Scenario: Check that selecting a date in the departing date, the same date is automatically filled in for return date
-    Given I am on the "flights" page
-    When I select the current day in the "flightStartDate" datepicker
-    Then I check that the value of "flightStartDate" element matches that of "flightEndDate" element
+#  Scenario: Check that selecting a date in the departing date, the same date is automatically filled in for return date
+#    Given I am on the "flights" page
+#    When I select the current day in the "flightStartDate" datepicker
+#    Then I check that the value of "flightStartDate" element matches that of "flightEndDate" element
 
-  Scenario: Validate the unaccompanied minors link on the international flights search form
-    Given I am on the "flightsInternational" page
-    When I follow "under 15 years old travelling alone »"
-    Then I should see "/unaccompanied-minors" in the url
+#  Scenario: Validate the unaccompanied minors link on the international flights search form
+#    Given I am on the "flightsInternational" page
+#    When I follow "under 15 years old travelling alone »"
+#    Then I should see "/unaccompanied-minors" in the url
 
   Scenario: Submit a search form from careers page
     Given I am on the "careers" page
@@ -138,8 +136,8 @@ Feature: Search the Web
     Given I am on the "travelInsurance" page
     Then I select the "Worldwide (inc. Americas and Africa)" from the "insuranceRegion" selector
     And I select the "Japan" from the "insuranceCountry" selector
-    Then I fill in the "insuranceStartDate" field with "20/12/2015"
-    And I fill in the "insuranceEndDate" field with "31/12/2015"
+    Then I fill in the "insuranceStartDate" field with "20/12/2016"
+    And I fill in the "insuranceEndDate" field with "31/12/2016"
     And I fill in the "insuranceAge" field with "25"
     And I click the "insuranceSearchbutton"
     Then I should see "/flight-centre" in the url
@@ -153,7 +151,6 @@ Feature: Search the Web
     Then I should see text "Flight Centre Cba Flagship Brisbane : Your local Flight Centre Store" in the "title"
     And I should see a "storeMap" on the page
 
-  @focus
   Scenario: Submit a flight search from the homepage
     Given I am on the "home" page
     Then I fill in the "homeStartCity" field with "Sydney"
@@ -230,7 +227,6 @@ Feature: Search the Web
     | gsaCruisesTab |
     | gsaGuidesTab |
 
-  @watch
   Scenario Outline: Check validation on a search from the homepage
     Given I am on the "home" page
     When I click the "findFlightsButton"

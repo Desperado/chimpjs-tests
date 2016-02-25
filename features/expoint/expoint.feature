@@ -86,7 +86,7 @@ Feature: Automated testing of ex point selectors
     And I select "newSouthWalesAutocomplete" from the autocomplete box
     Then I select a "datePickerStartDate" from the "flightsStartDate" datepicker
     Then I select a "datePickerEndDate" from the "flightsEndDate" datepicker
-    Then I click the "findDealsButton"
+    Then I click the "findFlightsButton"
     Then I should see "/results" in the url
 
   Scenario: Checks that submitting a search without altering the departing field works correctly
@@ -97,7 +97,7 @@ Feature: Automated testing of ex point selectors
     Then I select "franceAutocomplete" from the autocomplete box
     Then I select a "datePickerStartDate" from the "flightsStartDate" datepicker
     Then I select a "datePickerEndDate" from the "flightsEndDate" datepicker
-    Then I click the "findDealsButton"
+    Then I click the "findFlightsButton"
     Then I should see "/results" in the url
 
   Scenario: Checks that going to a SEM search page does not have the departing field set

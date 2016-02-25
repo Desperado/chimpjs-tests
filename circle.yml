@@ -18,4 +18,4 @@ dependencies:
 
 test:
   override:
-  - chimp --watch
+  - chimp --watch --jsonOutput=cucumber_output.json

@@ -17,14 +17,6 @@ this.Then(/^I fill in the search destination field "([^"]*)"$/, function (destin
 	browser.waitForVisible('.ui-autocomplete', 30000);
 });
 
-// this.Then(/^I select "([^"]*)" from the autocomplete box$/, function (selector) {
-//   browser.waitForVisible('.ui-autocomplete', 30000);
-//   browser.waitForVisible(common.pageObjects[selector], 30000);
-//   browser.pause(5000);
-//   client.click(common.pageObjects[selector], 30000);
-//   console.log('selector clicked');
-// });
-
 this.Then(/^I select "([^"]*)" from the autocomplete box$/, function (selector) {
   browser.waitForVisible('.ui-autocomplete', 30000);
   browser.waitForVisible(common.pageObjects[selector], 30000);
@@ -32,7 +24,6 @@ this.Then(/^I select "([^"]*)" from the autocomplete box$/, function (selector) 
   client.element(common.pageObjects[selector]);
   client.keys('Down arrow');
   client.keys('Enter');
-  console.log('selector clicked');
 });
 
 this.Then(/^I click today$/, function () {

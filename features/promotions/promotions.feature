@@ -1,5 +1,5 @@
 #@ignore
-@watch
+#@watch
 Feature: Enquire on promotions
 
   As a User
