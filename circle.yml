@@ -18,4 +18,4 @@ dependencies:
 
 test:
   override:
-  - ../node_modules/bin/chimp --watch
+  - chimp --watch
