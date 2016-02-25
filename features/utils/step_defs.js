@@ -1,9 +1,4 @@
 var common = require("../lib/pageObjects.js")
-var jsdom = require('jsdom').jsdom;
-var document = jsdom('<html></html>', {});
-var window = document.defaultView;
-var $ = require('jquery')(window);
-
 var cacheBust = '?' + (new Date).getTime();
 
 module.exports = function() {

@@ -1,10 +1,5 @@
 var common = require("../../lib/pageObjects.js");
-// var $ = require('jquery')(require("jsdom").jsdom().parentWindow);
-var jsdom = require('jsdom').jsdom;
-var document = jsdom('<html></html>', {});
-var window = document.defaultView;
-var $ = require('jquery')(window);
-// var $ = require('jquery');
+
 module.exports = function() {
 this.Then(/^I should see the "([^"]*)" ex point matches "([^"]*)"$/, function (selector, value) {
   el = browser.getValue(common.pageObjects[selector]);
