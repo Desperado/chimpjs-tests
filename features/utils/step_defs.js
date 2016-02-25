@@ -5,6 +5,15 @@ module.exports = function() {
 
   this.Given(/^I am on the "([^"]*)" page$/, function (location) {
     browser.url(common.siteSettings[location] + cacheBust);
+    client.execute(function(){
+      localStorage.clear();
+    });
+  });
+
+  this.Then(/^I clear the cache$/, function () {
+    client.execute(function(){
+      localStorage.clear();
+    });
   });
 
   this.Then(/^I fill in the "([^"]*)" field with "([^"]*)"$/, function (selector, value) {
@@ -22,7 +31,7 @@ module.exports = function() {
   });
 
   this.Then(/^I should see "([^"]*)" in the url$/, function (partial) {
-    found = browser.url().value.indexOf(partial) > -1;
+    var found = browser.url().value.indexOf(partial) > -1;
     expect(found).toBe(true);
   });
 

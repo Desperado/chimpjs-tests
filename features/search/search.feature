@@ -104,7 +104,7 @@ Feature: Search the Web
 
   Scenario Outline: Validate text when not entering text into search fields on the flights page
     Given I am on the "<location>" page
-    And I click the "findDealsButton"
+    And I click the "findFlightsButton"
     #Then I should see "THIS FIELD IS REQUIRED." on "startCityError"
     Then I should see "THIS FIELD IS REQUIRED." on "endCityError"
     Then I should see "THIS FIELD IS REQUIRED." on "startDateError"

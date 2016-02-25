@@ -13,7 +13,7 @@ this.Then(/^I fill in the search departure field with "([^"]*)"$/, function (dep
 });
 
 this.Then(/^I fill in the search destination field "([^"]*)"$/, function (destination) {
-  client.setValue('#flights-dest-str-string-endCity', destination);
+  client.setValue('#edit-endcitystr', destination);
 	browser.waitForVisible('.ui-autocomplete', 30000);
 });
 
@@ -75,8 +75,8 @@ this.When(/^I select the current day in the "([^"]*)" datepicker$/, function (se
 });
 
 this.Then(/^I check that the value of "([^"]*)" element matches that of "([^"]*)" element$/, function (startSelector, endSelector) {
-  startDate = browser.getValue(common.pageObjects[startSelector]);
-  endDate = browser.getValue(common.pageObjects[endSelector]);
+  var startDate = browser.getValue(common.pageObjects[startSelector]);
+  var endDate = browser.getValue(common.pageObjects[endSelector]);
   expect(startDate).toEqual(endDate);
 });
 
@@ -87,13 +87,13 @@ this.Given(/^I follow "([^"]*)"$/, function (link) {
 });
 
 this.Then(/^I should see text "([^"]*)" in the "([^"]*)"$/, function (text, selector) {
-  el = browser.getText(common.pageObjects[selector]);
+  var el = browser.getText(common.pageObjects[selector]);
   expect(el).toEqual(text);
 });
 
 
 this.Then(/^I should see a "([^"]*)" on the page$/, function (selector) {
-  el = browser.waitForVisible(common.pageObjects[selector]);
+  var el = browser.waitForVisible(common.pageObjects[selector]);
   expect(el).toBe(true);
 });
 
@@ -115,15 +115,9 @@ this.Then(/^I select the "([^"]*)"$/, function (selector) {
 
 this.Then(/^I should see the message "([^"]*)" on the error "([^"]*)"$/, function (value, selector) {
 console.log(common.pageObjects[selector]);
-  el = browser.getValue(common.pageObjects[selector]);
+  var el = browser.getValue(common.pageObjects[selector]);
   console.log(el);
   expect(el).toContain(value);
 });
-
-
-
-
-
-
 
 }

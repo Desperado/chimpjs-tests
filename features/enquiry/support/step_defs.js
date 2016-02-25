@@ -42,24 +42,18 @@ this.Then(/^I select an exact date of today$/, function () {
   browser.click('div.submit > a');
 });
 
-this.Then(/^I clear the cache$/, function () {
-  client.execute(function(){
-    localStorage.clear();
-  });
-});
-
 
 this.When(/^I click on the "([^"]*)" checkbox$/, function (selector) {
   client.click(common.pageObjects[selector]);
 });
 
 this.Then(/^I should see "([^"]*)" is a required field$/, function (selector) {
-  found = (client.getText(common.pageObjects[selector]) == '*');
+  var found = (client.getText(common.pageObjects[selector]) == '*');
   expect(found).toBe(true);
 });
 
 this.Then(/^I should not see "([^"]*)" is a required field$/, function (selector) {
-  found = client.isExisting(common.pageObjects[selector]);
+  var found = client.isExisting(common.pageObjects[selector]);
   expect(found).not.toBe(true);
 });
 
@@ -78,7 +72,7 @@ this.Then(/^I click the "([^"]*)" progressive disclosure button$/, function (sel
 });
 
 this.Given(/^I fill in the "([^"]*)" with 250 characters$/, function (selector) {
-  text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit." +
+  var text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit." +
          " Proin ac lectus eu ex congue suscipit. Phasellus lobortis leo posuere " +
          "metus blandit placerat. Donec in laoreet nulla. " +
          "Phasellus vel est varius, suscipit nunc ut, ultrices dolor. Suspendisse sed.";
@@ -91,6 +85,12 @@ this.Then(/^I should see "([^"]*)" in the hidden keyword$/, function (selector) 
   expect(client.getValue(common.pageObjects[selector])).toEqual('250characters');
 });
 
-
+this.Then(/^I should be on the confirmation page$/, function () {
+  client.waitForExist('h1', 30000);
+  var header = client.getText('h1');
+  expect(header).toContain('Confirmation');
+  var found = browser.url().value.indexOf('/contact-us/enquiry-confirmation') > -1;
+  expect(found).toBe(true);
+});
 
 }

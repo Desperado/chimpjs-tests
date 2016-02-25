@@ -107,7 +107,7 @@ exports.pageObjects = {
     gsaCruisesTab: 'a[href*="/search-cruises/"]',
     gsaGuidesTab: 'a[href*="/search-guides/"]',
     homeOneWayCheckbox: '#edit-flighttypeoption',
-    flightsOneWayCheckbox: '#edit-flighttypeoption-1',
+    flightsOneWayCheckbox: '#edit-flighttypeoption',
     flightsStartDate: '//*[@name= "startDate"]',
     flightsEndDate: '//*[@name= "endDate"]',
     cruiseDestination: '#edit-submitted-destination',
@@ -173,7 +173,8 @@ exports.siteSettings = {
     seniorCruises: baseUrl + '/cruises/seniors',
     christmasMarketsCruises: baseUrl + '/cruises/be-inspired/christmas-markets',
     baliFlightsGeneralSearch: baseUrl + '/travel/flights/general-search/bali',
-    tourPackageLasAngeles: baseUrl + 'tours/los-angeles/3463101'
+    tourPackageLasAngeles: baseUrl + 'tours/los-angeles/3463101',
+    worldOnSale: baseUrl + '/promotions/world-on-sale',
 };
 
   // outBoundFlightsHeader = '#outboundFlights h2';
