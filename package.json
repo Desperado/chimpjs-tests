@@ -1,8 +1,8 @@
 {
   "private": true,
   "scripts": {
-    "start": "node scripts/start.js",
-    "test": "node scripts/start.js"
+    "start": "node ./scripts/start.js",
+    "test": "node ./scripts/test.js"
   },
   "devDependencies": {
     "chimp": "^0.24.1"
