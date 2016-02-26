@@ -17,5 +17,8 @@ dependencies:
     #- ./node_modules/.bin/chimp --path=content # there are no tests in content
 
 test:
+  pre:
+    - mkdir -p $CIRCLE_TEST_REPORTS/cucumber
+
   override:
-  - chimp --watch --jsonOutput=cucumber_output.json
+  - chimp --watch --jsonOutput=$CIRCLE_TEST_REPORTS/cucumber/cucumber_output.json
