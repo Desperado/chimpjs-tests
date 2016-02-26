@@ -11,14 +11,16 @@ dependencies:
 
   override:
     # Cache npm deps
-    - npm install -g chimp
+    - npm install
 
     # Cache Selenium & ChromeDriver
-    #- ./node_modules/.bin/chimp --path=content # there are no tests in content
+    # - ./node_modules/.bin/chimp --path=content # there are no tests in content
 
 test:
   pre:
     - mkdir -p $CIRCLE_TEST_REPORTS/cucumber
 
   override:
-  - chimp --watch --jsonOutput=$CIRCLE_TEST_REPORTS/cucumber/cucumber_output.json
+    - npm test:
+        environment:
+          CUCUMBER_JSON_OUTPUT: "$CIRCLE_TEST_REPORTS/cucumber/chrome.cucumber"

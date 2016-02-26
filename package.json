@@ -1,0 +1,10 @@
+{
+  "private": true,
+  "scripts": {
+    "start": ".scripts/start.js",
+    "test": ".scripts/test.js"
+  },
+  "devDependencies": {
+    "chimp": "^0.24.1"
+  }
+}
