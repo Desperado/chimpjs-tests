@@ -1,5 +1,5 @@
 #@ignore
-@watch
+#@watch
 Feature: Search the Web
 
   As a User
