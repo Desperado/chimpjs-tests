@@ -1,4 +1,4 @@
-@watch
+#@watch
 #@ignore
 Feature: Automated testing of ex point selectors
   In order to test that ex point is correctly setting
