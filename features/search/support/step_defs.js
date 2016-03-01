@@ -14,11 +14,11 @@ this.Then(/^I fill in the search departure field with "([^"]*)"$/, function (dep
 
 this.Then(/^I fill in the search destination field "([^"]*)"$/, function (destination) {
   client.setValue('#edit-endcitystr', destination);
-	browser.waitForVisible('.ui-autocomplete', 30000);
+	// browser.waitForVisible('.ui-autocomplete', 30000);
 });
 
 this.Then(/^I select "([^"]*)" from the autocomplete box$/, function (selector) {
-  browser.waitForVisible('.ui-autocomplete', 30000);
+  // browser.waitForVisible('.ui-autocomplete', 30000);
   browser.waitForVisible(common.pageObjects[selector], 30000);
   browser.pause(5000);
   client.element(common.pageObjects[selector]);
