@@ -14,7 +14,7 @@ function runChimp() {
        '--watch',
        '--browser=phantomjs',
        '--singleSnippetPerFile=1',
-       '--jsonOutput=cucumber/chimpTests.json',
+       '--jsonOutput=chimpTests.json',
        '--saveScreenshots=true',
        '--attachScreenshotsToReport=true',
        '--screenshotsOnError=true'
