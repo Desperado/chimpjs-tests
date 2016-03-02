@@ -9,10 +9,7 @@ dependencies:
     - "node_modules"
     - "~/.npm"
 
-  override:
     # Cache npm deps
-    - npm test
-
     # Cache Selenium & ChromeDriver
     # - ./node_modules/.bin/chimp --path=content # there are no tests in content
 
