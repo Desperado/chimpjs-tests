@@ -20,4 +20,4 @@ test:
   override:
     - npm test:
         environment:
-          CUCUMBER_JSON_OUTPUT: "$CIRCLE_TEST_REPORTS/cucumber/chrome.cucumber"
+          CUCUMBER_JSON_OUTPUT: "$CIRCLE_TEST_REPORTS/cucumber/chimpTests.json"
