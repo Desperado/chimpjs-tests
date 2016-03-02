@@ -1,57 +1,40 @@
 #!/usr/bin/env node
 var path = require('path'),
    extend = require('util')._extend,
-   exec = require('child_process').exec;
+   spawn = require('child_process').spawn;
 
-// var baseDir = path.resolve(__dirname, '..');
-  //  chimpScript = path.resolve(__dirname, 'start.js');
+var baseDir = path.resolve(__dirname, '..');
 
-runTests();
+runChimp();
 
-function runTests() {
-  console.log('run test has run');
-  runChimp(function () {
-    console.log('Yay!');
-  });
-}
-
-function runChimp(callback) {
-  console.log('run chimp has run');
-  startProcess({
-    name: 'Chimp',
-    // options: {
-    //   env: extend({CI: 1}, process.env)
-    // },
-    command: 'chimp --watch --browser=phantomjs --singleSnippetPerFile=1'
-  }, callback);
-}
-
-function startProcess(opts, callback) {
-console.log('start process has run');
-  var proc = exec(
-     opts.command
-    //  opts.options
+function runChimp() {
+  console.log('Running chimpJS');
+  var childProcess = spawn('chimp',
+     [
+       '--watch',
+       '--browser=phantomjs',
+       '--singleSnippetPerFile=1'
+     ]
   );
-  proc.stdout.pipe(process.stdout);
-  proc.stderr.pipe(process.stderr);
-  // proc.stdout.on('data', function(data) {
-  //   if (/steps/.test(data)) {
-  //     proc.kill('SIGHUP');
-  //   }
-  // });
-  proc.on('close', function (code, signal) {
-    if (code > 0) {
-      console.log(opts.name, 'exited with code ' + code);
-      proc.exit(code);
-    }
-    else {
-      proc.exit(code);
-      console.log('all tests passed');
-    }
+  childProcess.stdout.setEncoding('utf8');
+  childProcess.stderr.setEncoding('utf8');
+  childProcess.stdout.on('data', function (line) {
+    process.stdout.write(line);
   });
-  // proc.on('error', function(code, signal) {
-  //   console.log(arguments);
-  // });
-  // console.log('finsihed without close');
-  // callback();
+  childProcess.stderr.on('data', function (line) {
+    process.stderr.write(line);
+  });
+  var exitAfterBuild = function exitAfterBuild(line) {
+    if (line.indexOf('steps') !== -1) {
+      childProcess.kill('SIGINT');
+      console.log('Finished running chimp');
+    } else if (
+       line.indexOf('chimp has exited with') !== -1) {
+      childProcess.kill('SIGINT');
+      console.error('There were issues whilst running chimp');
+      throw new Error(line);
+    }
+  };
+  childProcess.stdout.on('data', exitAfterBuild);
+  childProcess.stderr.on('data', exitAfterBuild);
 }

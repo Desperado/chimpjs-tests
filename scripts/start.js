@@ -55,7 +55,7 @@ function startProcess(opts, callback) {
     for (var i = 0; i < processes.length; i += 1) {
       processes[i].kill();
     }
-    process.exit(code);
+    proc.exit(code);
   });
 
   proc.stdout.pipe(process.stdout);
