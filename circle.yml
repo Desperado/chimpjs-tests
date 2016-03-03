@@ -14,10 +14,10 @@ dependencies:
     # - ./node_modules/.bin/chimp --path=content # there are no tests in content
 
 test:
-  pre:
-    - mkdir -p $CIRCLE_TEST_REPORTS/
+  # pre:
+  #   - mkdir -p $CIRCLE_TEST_REPORTS/
 
   override:
     - npm test:
-        environment:
-          CUCUMBER_JSON_OUTPUT: "$CIRCLE_TEST_REPORTS/chimpTests.json"
+        # environment:
+        #   CUCUMBER_JSON_OUTPUT: "$CIRCLE_TEST_REPORTS/chimpTests.json"

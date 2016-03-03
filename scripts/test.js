@@ -33,9 +33,9 @@ function runChimp() {
       childProcess.kill('SIGINT');
       console.log('Finished running chimp');
     } else if (
-       line.indexOf('chimp has exited with') !== -1) {
+       line.indexOf('failed to start') !== -1) {
       childProcess.kill('SIGINT');
-      console.error('There were issues whilst running chimp');
+      console.error('phantomJS failed to start, build failed');
       throw new Error(line);
     }
   };
