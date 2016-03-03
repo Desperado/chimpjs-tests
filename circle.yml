@@ -15,9 +15,9 @@ dependencies:
 
 test:
   # pre:
-  #   - mkdir -p $CIRCLE_TEST_REPORTS/
+    # - mkdir -p $CIRCLE_TEST_REPORTS/
 
   override:
-    - npm test:
+    - npm test
         # environment:
         #   CUCUMBER_JSON_OUTPUT: "$CIRCLE_TEST_REPORTS/chimpTests.json"
