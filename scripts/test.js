@@ -14,10 +14,11 @@ function runChimp() {
        '--watch',
        '--browser=phantomjs',
        '--singleSnippetPerFile=1',
-       '--jsonOutput=chimpTests.json',
+       '--jsonOutput=chimpTests.cucumber',
        '--saveScreenshots=true',
        '--attachScreenshotsToReport=true',
-       '--screenshotsOnError=true'
+       '--format=json'
+      //  '--screenshotsOnError=true'
      ]
   );
   childProcess.stdout.setEncoding('utf8');
