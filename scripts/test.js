@@ -14,10 +14,10 @@ function runChimp() {
        '--watch',
        '--browser=phantomjs',
        '--singleSnippetPerFile=1',
-       '--jsonOutput=chimpTests.cucumber',
+       '--jsonOutput=cucumber/chimpTests.cucumber',
        '--saveScreenshots=true',
-       '--attachScreenshotsToReport=true',
-       '--format=json'
+       '--attachScreenshotsToReport=true'
+      //  '--format=json'
       //  '--screenshotsOnError=true'
      ]
   );
