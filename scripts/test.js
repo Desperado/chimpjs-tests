@@ -16,8 +16,8 @@ function runChimp() {
        '--singleSnippetPerFile=1',
        '--jsonOutput=cucumber/chimpTests.cucumber',
        '--saveScreenshots=true',
-       '--attachScreenshotsToReport=true'
-      //  '--format=json'
+       '--attachScreenshotsToReport=true',
+       '--format=json'
       //  '--screenshotsOnError=true'
      ]
   );
