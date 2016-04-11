@@ -14,10 +14,10 @@ function runChimp() {
        '--watch',
        '--browser=phantomjs',
        '--singleSnippetPerFile=1',
-       '--jsonOutput=cucumber/chimpTests.cucumber',
+       '--jsonOutput=cucumber/chimpTests.cucumber'
       //  '--saveScreenshots=true',
       //  '--attachScreenshotsToReport=true',
-       '--format=json',
+      //  '--format=json'
       //  '--screenshotsOnError=true'
      ]
   );
@@ -29,17 +29,26 @@ function runChimp() {
   childProcess.stderr.on('data', function (line) {
     process.stderr.write(line);
   });
-  var exitAfterBuild = function exitAfterBuild(line) {
-    if (line.indexOf('steps') !== -1) {
-      childProcess.kill('SIGINT');
-      console.log('Finished running chimp');
-    } else if (
-       line.indexOf('failed to start') !== -1) {
-      childProcess.kill('SIGINT');
-      console.error('phantomJS failed to start, build failed');
-      throw new Error(line);
+  // var exitAfterBuild = function exitAfterBuild(line) {
+  //   if (line.indexOf('steps') !== -1) {
+  //     childProcess.kill('SIGINT');
+  //     console.log('Finished running chimp');
+  //   } else if (
+  //      line.indexOf('failed to start') !== -1) {
+  //     childProcess.kill('SIGINT');
+  //     console.error('phantomJS failed to start, build failed');
+  //     throw new Error(line);
+  //   }
+  // };
+//   childProcess.stdout.on('data', exitAfterBuild);
+//   childProcess.stderr.on('data', exitAfterBuild);
+// }
+childProcess.on('close', function (code) {
+    if (code > 0) {
+      console.log('ChimpJs exited with code ' + code);
+      childProcess.exit(code);
+    } else {
+      callback();
     }
-  };
-  childProcess.stdout.on('data', exitAfterBuild);
-  childProcess.stderr.on('data', exitAfterBuild);
+  });
 }
