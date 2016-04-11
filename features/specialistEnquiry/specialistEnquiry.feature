@@ -1,4 +1,4 @@
-#@watch
+@watch
 Feature: Specialist Enquiry Routing
 
   As a User

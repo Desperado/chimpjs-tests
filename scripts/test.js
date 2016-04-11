@@ -12,13 +12,13 @@ function runChimp() {
   var childProcess = spawn('chimp',
      [
        '--watch',
-       '--browser=chrome',
+       '--browser=phantomjs',
        '--singleSnippetPerFile=1',
-       '--jsonOutput=cucumber/chimpTests.cucumber',
+      //  '--jsonOutput=cucumber/chimpTests.cucumber',
        '--saveScreenshots=true',
-       '--attachScreenshotsToReport=true'
-      //  '--format=json'
-      //  '--screenshotsOnError=true'
+       '--attachScreenshotsToReport=true',
+      //  '--format=json',
+       '--screenshotsOnError=true'
      ]
   );
   childProcess.stdout.setEncoding('utf8');

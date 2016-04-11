@@ -14,7 +14,8 @@ exports.pageObjects = {
     postcodeError: '.edit-postcode--2-error',
     budget: '.feature-button-budget',
     budgetField: '#edit-budget',
-    newSouthWalesAutocomplete: '//*[contains(text(), "New South Wales, Australia")]',
+    newSouthWalesAutocomplete: '//*[contains(text(), "Sydney Airport")]',
+    brisbaneAutocomplete: '//*[contains(text(), "Brisbane Airport")]',
     queenslandAutocomplete: '//*[contains(text(), "Queensland, Australia")]',
     tamworthAutocomplete: '//*[contains(text(), "Tamworth")]',
     rockhamptonAutocomplete: '//*[contains(text(), "Rockhampton")]',
@@ -29,9 +30,11 @@ exports.pageObjects = {
     holidayPriceField: '#edit-submitted-fprice',
     holidayStartCity: '#edit-submitted-fdeparture',
     holidayDestination: '#ajax-dest-str-string-destination_in',
-    franceAutocomplete: '//*[contains(text(), "France")]',
+    franceAutocomplete: '//*[contains(text(), ", France")]',
     searchHolidaysButton: '//*[@value= "Search Holidays »"]',
     flightsDomesticProducts: '.availability-results',
+    flightsDomesticOutboundProducts: '#outboundFlights > div.flights-wrapper > div > div',
+    flightsDomesticInboundProducts: '#inboundFlights > div.flights-wrapper > div > div',
     flightsInternationalOutBoundProducts: '.outbound-flight-details',
     flightsInternationalInBoundProducts: '.inbound-flight-details',
     christmasPromotionProducts: '.product-image--airline',
@@ -44,6 +47,7 @@ exports.pageObjects = {
     railSearchButton: '//*[@value= "Search Rail »"]',
     asia: 'Asia',
     products: '.fcl-procat-product-full',
+    procatProducts: '.fcl-procat-product',
     tourDestination: '#ajax-dest-str-string-destination_in',
     tourPrice: '[1501 TO 2000]',
     tourPriceField: '#edit-submitted-half-2-price',
@@ -58,6 +62,7 @@ exports.pageObjects = {
     startDateError: '#startDate-error',
     endDateError: '#endDate-error',
     flightStartDate: '//*[@name="startDate"]',
+    startDate: '//*[@name="startDate"]',
     flightEndDate: '//*[@name="endDate"]',
     careersKeyword: '#edit-submitted-description',
     careersCategory: '#edit-submitted-sector-name',
@@ -80,8 +85,8 @@ exports.pageObjects = {
     homeEndDate: '//*[@name= "endDate"]',
     findFlightsButton: '//*[@value= "FIND FLIGHTS"]',
     datepickerNextMonth: '.ui-icon-circle-triangle-e',
-    datePickerStartDate: '//a[contains(text(),"28")]',
-    datePickerEndDate:'//a[contains(text(),"10")]',
+    datePickerStartDate: '//a[contains(text(), "28") and contains(@class, "ui-state-default")]',
+    datePickerEndDate:'//a[contains(text(), "10") and contains(@class, "ui-state-default")]',
     homeHotelsTab: 'a[href="#hotels"]',
     homeHotelsDestination: '#edit-area2',
     homeHotelsStartDate: '//*[@name= "date1"]',
@@ -95,6 +100,7 @@ exports.pageObjects = {
     homeCruiseTab: 'a[href="#cruise"]',
     homeCruiseDestination: '#edit-destination-in',
     findCruisesButton: '//*[@value= "FIND CRUISES"]',
+    findHotelsButton: '//*[@value= "FIND HOTELS"]',
     cruiseProducts: '.fcl-procat-product-full',
     homeCarHireTab: 'a[href="#car-hire"]',
     domesticCarHireButton: 'a[href="/car-hire"]',
@@ -123,9 +129,20 @@ exports.pageObjects = {
     flightsStartCity: '#edit-startcitystr',
     flightsEndCity: '#edit-endcitystr',
     holidaysAirExpoint: '//*[@name="air_ex_points_list"]',
-    homeEndCityError: 'div.form-item-endCityStr label.error',
+    homeEndCityError: '#edit-location label.error',
     homeStartDateError: 'div.form-item-startDate label.error',
-    homeEndDateError: 'div.form-item-endDate label.error'
+    homeEndDateError: 'div.form-item-endDate label.error',
+    loginButton: '#edit-github-login',
+    firstBookable: 'div.fcl-procat-product.is-bookable',
+    domesticFlightsTab: 'a[href*="#domestic-flights"]',
+    findAndBookOnline: '//*[@value= "Find & Book Online"]',
+    sydneyToGoldCoastAirfare: '//*[contains(text(), "Sydney to Gold Coast Airfare")]',
+    oneWayProduct: '//*[contains(text(), "One way from")]',
+    modalStartDate: '.form__start-date',
+    modalEndDate: '.form__end-date',
+    modalFlightType: '#edit_flighttype_chosen > a > span',
+    wishListCounter: '.shortlist-header.btn-flat.primary .shortlist-counter',
+
 
 };
 
@@ -134,6 +151,7 @@ var baseUrl = 'http://www.flightcentre.com.au';
 exports.siteSettings = {
 
     home: baseUrl + '/',
+    login: baseUrl + '/user',
     flights: baseUrl + '/flights',
     contactus: baseUrl + '/contact-us',
     flights: baseUrl + '/flights',
@@ -175,6 +193,13 @@ exports.siteSettings = {
     baliFlightsGeneralSearch: baseUrl + '/travel/flights/general-search/bali',
     tourPackageLasAngeles: baseUrl + 'tours/los-angeles/3463101',
     worldOnSale: baseUrl + '/promotions/world-on-sale',
+    holidaysSearch: baseUrl + '/holidays/search',
+    railSearch: baseUrl + '/rail/search',
+    toursSearch: baseUrl + '/tours/search',
+    careersSearch: baseUrl + '/careers/search',
+    cruisesSearch: baseUrl + '/cruises/search',
+    wishlist: baseUrl + '/wishlist',
+
 };
 
   // outBoundFlightsHeader = '#outboundFlights h2';

@@ -1,4 +1,4 @@
-#@watch
+@watch
 #@ignore
 Feature: Automated testing of ex point selectors
   In order to test that ex point is correctly setting
@@ -8,42 +8,43 @@ Feature: Automated testing of ex point selectors
   #@watch
   Scenario: Checks that on page load ex point value is set to "sydney" by default
     Given I am on the "home" page
+    And I clear the cache
     Then I should see the "homeInternationalFlightsExpoint" ex point matches "sydney"
-    Then I should see the "homeStartCity" value matches "Sydney, New South Wales, Australia - KingsfordSmith (SYD)"
+    Then I should see the "homeStartCity" value matches "Sydney, Australia - Sydney Airport (Kingsford Smith Airport) (SYD)"
     When I am on the "flights" page
     Then I should see the "flightsAustraliaExpoint" ex point matches "sydney"
-    And I should see the "flightsStartCity" value matches "Sydney, New South Wales, Australia - KingsfordSmith (SYD)"
+    And I should see the "flightsStartCity" value matches "Sydney, Australia - Sydney Airport (Kingsford Smith Airport) (SYD)"
     When I am on the "contactus" page
-    And I should see the "enquiryDeparting" value matches "Sydney, New South Wales, Australia - KingsfordSmith (SYD)"
+    And I should see the "enquiryDeparting" value matches "Sydney, Australia - Sydney Airport (Kingsford Smith Airport) (SYD)"
 
   Scenario: Changing the ex point from the flights page corresponds to a change on the alt homepage ex point
     Given I am on the "home" page
     Then I should see the "homeInternationalFlightsExpoint" ex point matches "sydney"
     When I select the "melbourne" from the "homeInternationalFlightsExpoint" selector
     Then I should see the "homeInternationalFlightsExpoint" ex point matches "melbourne"
-    And I should see the "homeStartCity" value matches "Melbourne, Victoria, Australia (MEL)"
+    And I should see the "homeStartCity" value matches "Melbourne, Australia - Melbourne Airport (MEL)"
     When I am on the "flights" page
     Then I should see the "flightsAustraliaExpoint" ex point matches "melbourne"
-    And I should see the "flightsStartCity" value matches "Melbourne, Victoria, Australia (MEL)"
+    And I should see the "flightsStartCity" value matches "Melbourne, Australia - Melbourne Airport (MEL)"
     When I am on the "contactus" page
-    And I should see the "enquiryDeparting" value matches "Melbourne, Victoria, Australia (MEL)"
+    And I should see the "enquiryDeparting" value matches "Melbourne, Australia - Melbourne Airport (MEL)"
 
   Scenario: Changing the ex point from the flights page corresponds to a change on the homepage ex point
     Given I am on the "flights" page
     Then I should see the "flightsAustraliaExpoint" ex point matches "melbourne"
-    And I should see the "flightsStartCity" value matches "Melbourne, Victoria, Australia (MEL)"
+    And I should see the "flightsStartCity" value matches "Melbourne, Australia - Melbourne Airport (MEL)"
     When I select the "brisbane" from the "flightsAustraliaExpoint" selector
     Then I should see the "flightsAustraliaExpoint" ex point matches "brisbane"
-    And I should see the "flightsStartCity" value matches "Brisbane, Queensland, Australia - Brisbane International Airport (BNE)"
+    And I should see the "flightsStartCity" value matches "Brisbane, Australia - Brisbane Airport (BNE)"
     When I am on the "contactus" page
-    And I should see the "enquiryDeparting" value matches "Brisbane, Queensland, Australia - Brisbane International Airport (BNE)"
+    And I should see the "enquiryDeparting" value matches "Brisbane, Australia - Brisbane Airport (BNE)"
 
   Scenario: Checks that the ex point is correct on international flights
     Given I am on the "flightsInternational" page
     Then I should see the "flightsInternationalPopularExpoint" ex point matches "brisbane"
-    And I should see the "flightsStartCity" value matches "Brisbane, Queensland, Australia - Brisbane International Airport (BNE)"
+    And I should see the "flightsStartCity" value matches "Brisbane, Australia - Brisbane Airport (BNE)"
     When I am on the "contactus" page
-    And I should see the "enquiryDeparting" value matches "Brisbane, Queensland, Australia - Brisbane International Airport (BNE)"
+    And I should see the "enquiryDeparting" value matches "Brisbane, Australia - Brisbane Airport (BNE)"
 
   Scenario: Selects a non major city from flights search form
     Given I am on the "flights" page
@@ -53,21 +54,21 @@ Feature: Automated testing of ex point selectors
     Then I should see the "flightsAustraliaExpoint" ex point matches "sydney"
     When I am on the "home" page
     Then I should see the "homeInternationalFlightsExpoint" ex point matches "sydney"
-    And I should see the "homeStartCity" value matches "Tamworth, New South Wales, Australia - Tamworth (TMW)"
+    And I should see the "homeStartCity" value matches "Tamworth, Australia - Tamworth Airport (TMW)"
     When I am on the "contactus" page
-    Then I should see the "enquiryDeparting" value matches "Tamworth, New South Wales, Australia - Tamworth (TMW)"
+    Then I should see the "enquiryDeparting" value matches "Tamworth, Australia - Tamworth Airport (TMW)"
 
   Scenario: Checks that sydney is the only city listed on a flight landing page
     Given I am on the "flightsAuckland" page
     Then I should see the link "Sydney to Auckland"
-    And I should see the "enquiryDeparting" value matches "Tamworth, New South Wales, Australia - Tamworth (TMW)"
+    And I should see the "enquiryDeparting" value matches "Tamworth, Australia - Tamworth Airport (TMW)"
 
   Scenario: checks that sydney is the only city listed on a holiday landing page
     Given I am on the "holidaysAuckland" page
     And I should see the "holidaysAirExpoint" value matches "sydney"
     Given I am on the "flightsAuckland" page
     Then I should see the link "Sydney to Auckland"
-    And I should see the "enquiryDeparting" value matches "Tamworth, New South Wales, Australia - Tamworth (TMW)"
+    And I should see the "enquiryDeparting" value matches "Tamworth, Australia - Tamworth Airport (TMW)"
 
   Scenario: Checks that changing the departure field from the holidays landing page doesn't affect ex point
     Given I am on the "holidays" page
@@ -76,7 +77,7 @@ Feature: Automated testing of ex point selectors
     And I am on the "home" page
     And I wait for AJAX to finish
     Then I should see the "homeInternationalFlightsExpoint" ex point matches "sydney"
-    And I should see the "homeStartCity" value matches "Tamworth, New South Wales, Australia - Tamworth (TMW)"
+    And I should see the "homeStartCity" value matches "Tamworth, Australia - Tamworth Airport (TMW)"
 
   Scenario: Checks that values pass through to SOAR when submitting a search
     Given I am on the "flights" page

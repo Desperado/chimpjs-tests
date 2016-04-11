@@ -14,16 +14,20 @@ this.Then(/^I fill in the search departure field with "([^"]*)"$/, function (dep
 
 this.Then(/^I fill in the search destination field "([^"]*)"$/, function (destination) {
   client.setValue('#edit-endcitystr', destination);
-	browser.waitForVisible('.ui-autocomplete', 30000);
+	// browser.waitForVisible('.ui-autocomplete', 30000);
 });
 
 this.Then(/^I select "([^"]*)" from the autocomplete box$/, function (selector) {
-  browser.waitForVisible('.ui-autocomplete', 30000);
-  browser.waitForVisible(common.pageObjects[selector], 30000);
+  // browser.waitForVisible('.ui-autocomplete', 30000);
+  // browser.waitForVisible(common.pageObjects[selector], 30000);
   browser.pause(5000);
-  client.element(common.pageObjects[selector]);
-  client.keys('Down arrow');
-  client.keys('Enter');
+  client.execute(function(){
+    jQuery('.ui-autocomplete').css('display', 'block');
+  })
+  browser.pause(5000);
+  client.click(common.pageObjects[selector]);
+  // client.keys('Down arrow');
+  // client.keys('Enter');
 });
 
 this.Then(/^I click today$/, function () {
@@ -88,6 +92,12 @@ this.Then(/^I should see a "([^"]*)" on the page$/, function (selector) {
   expect(el).toBe(true);
 });
 
+this.Then(/^I should see text matching "([^"]*)"$/, function (arg1) {
+  // Write code here that turns the phrase above into concrete actions
+  pending();
+});
+
+
 this.Then(/^I select a "([^"]*)" from the "([^"]*)" datepicker$/, function (date, selector) {
   browser.click(common.pageObjects[selector]);
   browser.click(common.pageObjects[selector]);
@@ -105,10 +115,14 @@ this.Then(/^I select the "([^"]*)"$/, function (selector) {
 });
 
 this.Then(/^I should see the message "([^"]*)" on the error "([^"]*)"$/, function (value, selector) {
-console.log(common.pageObjects[selector]);
-  var el = browser.getValue(common.pageObjects[selector]);
-  console.log(el);
-  expect(el).toContain(value);
+  browser.pause(5000);
+  var el = common.pageObjects[selector];
+  var val = client.execute(function(arg1){
+    return jQuery(arg1).text()
+    // return jQuery('#edit-location label.error').text()
+  }, el);
+  var valstr = val.value;
+  expect(valstr).toContain(value);
 });
 
 }

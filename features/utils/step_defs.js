@@ -4,7 +4,8 @@ var cacheBust = '?' + (new Date).getTime();
 module.exports = function() {
 
   this.Given(/^I am on the "([^"]*)" page$/, function (location) {
-    browser.url(common.siteSettings[location] + cacheBust);
+    // browser.url(common.siteSettings[location] + cacheBust);
+    browser.url(common.siteSettings[location]);
   });
 
   this.Then(/^I clear the cache$/, function () {
@@ -36,5 +37,10 @@ module.exports = function() {
     client.waitForExist(common.pageObjects[selector], 3000);
     expect(client.getText(common.pageObjects[selector])).toEqual(text);
   });
+
+  this.Given(/^I wait for a period of time$/, function () {
+    browser.pause(1000);
+  });
+
 
 }

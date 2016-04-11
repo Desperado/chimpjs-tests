@@ -6,7 +6,6 @@ Feature: Submit an enquiry
   I want to be able to submit an enquiry form
   So I can have my enquiry responded to
 
-  #@watch
   Scenario Outline: Submit an enquiry form
   	Given I am on the "<location>" page
     And I clear the cache
@@ -46,6 +45,7 @@ Feature: Submit an enquiry
     Given I am on the "<location>" page
     And I clear the cache
     When I click submit
+    And I wait for a period of time
     Then I should see "Please enter your first name" on "firstNameError"
     Then I should see "Please enter your last name" on "lastNameError"
     Then I should see "Please provide a postcode" on "postcodeError"
