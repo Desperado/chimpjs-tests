@@ -1,4 +1,3 @@
-#@ignore
 @watch
 Feature: Search the Web
 
@@ -15,7 +14,7 @@ Feature: Search the Web
     Then I select a "datePickerStartDate" from the "flightsStartDate" datepicker
     Then I select a "datePickerEndDate" from the "flightsEndDate" datepicker
     Then I click the "findFlightsButton"
-    Then I should be on the "outBoundFlightsHeader" page
+    Then I should be on the flight "outBoundFlightsHeader" page
     And I should see some "flightsDomesticProducts"
 
   Examples:
@@ -31,7 +30,7 @@ Feature: Search the Web
     Then I select "newSouthWalesAutocomplete" from the autocomplete box
     Then I select a "datePickerStartDate" from the "flightsStartDate" datepicker
     Then I click the "findFlightsButton"
-    Then I should be on the "outBoundFlightsHeader" page
+    Then I should be on the flight "outBoundFlightsHeader" page
     And I should see some "flightsDomesticProducts"
 
   Examples:

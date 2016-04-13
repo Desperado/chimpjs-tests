@@ -1,11 +1,9 @@
 @watch
-#@ignore
 Feature: Automated testing of ex point selectors
   In order to test that ex point is correctly setting
   As a user
   I need to assert that the ex point is correct across my page traversal
 
-  #@watch
   Scenario: Checks that on page load ex point value is set to "sydney" by default
     Given I am on the "home" page
     And I clear the cache

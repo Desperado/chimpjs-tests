@@ -1,4 +1,3 @@
-#@ignore
 @watch
 Feature: Submit an enquiry
 

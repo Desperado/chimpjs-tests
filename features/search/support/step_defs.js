@@ -42,7 +42,7 @@ this.Then(/^I submit the search$/, function () {
   client.click('.fc-form-inner #edit-submit');
 });
 
-this.Then(/^I should be on the "([^"]*)" page$/, function (selector) {
+this.Then(/^I should be on the flight "([^"]*)" page$/, function (selector) {
   browser.waitForVisible(common.pageObjects[selector], 30000);
 	var title = browser.getText(common.pageObjects[selector]);
   expect(title).toEqual('Select Departing Flight');

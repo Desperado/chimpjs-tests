@@ -48,6 +48,7 @@ exports.pageObjects = {
     asia: 'Asia',
     products: '.fcl-procat-product-full',
     procatProducts: '.fcl-procat-product',
+    procatProductView: '.fcl-procat-product .btn.product-button',
     tourDestination: '#ajax-dest-str-string-destination_in',
     tourPrice: '[1501 TO 2000]',
     tourPriceField: '#edit-submitted-half-2-price',
@@ -142,6 +143,11 @@ exports.pageObjects = {
     modalEndDate: '.form__end-date',
     modalFlightType: '#edit_flighttype_chosen > a > span',
     wishListCounter: '.shortlist-header.btn-flat.primary .shortlist-counter',
+    title: 'h1',
+    secondHeader: 'h2',
+    dialogueBox: '#cboxClose',
+    wishlistAddButton: '.shortlist-product-add-btn',
+    removeFromWishlist: '.shortlist-product-add-btn.mini.shortlisted',
 
 
 };
