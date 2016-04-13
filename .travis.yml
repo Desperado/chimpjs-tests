@@ -20,4 +20,4 @@ before_install:
 install:
 
 script:
-  - test.sh
+  - sh script/test.sh
