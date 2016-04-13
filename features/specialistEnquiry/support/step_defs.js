@@ -10,7 +10,7 @@ module.exports = function() {
     expect(client.getHTML(common.pageObjects[selector])).toContain(value);
   });
 
-  this.Givevn(/^I close the build"$/, function () {
+  this.Given(/^I close the build"$/, function () {
     browser.end();
   });
 
