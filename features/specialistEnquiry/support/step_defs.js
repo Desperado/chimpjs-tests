@@ -10,8 +10,10 @@ module.exports = function() {
     expect(client.getHTML(common.pageObjects[selector])).toContain(value);
   });
 
+  //attempt to close browser for CI build
   this.Given(/^I close the build$/, function () {
     browser.end();
   });
+
 
 }
