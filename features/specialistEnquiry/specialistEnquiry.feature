@@ -71,6 +71,3 @@ Feature: Specialist Enquiry Routing
     | gayLesbianCruises       |
     | seniorCruises           |
     | christmasMarketsCruises |
-
-  Scenario: Attempt to close browser process
-    Given I close the build
