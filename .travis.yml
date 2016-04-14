@@ -5,13 +5,13 @@ language: node_js
 node_js:
   - 5.2.0
 
-addons:
-  apt:
-    sources:
-      - google-chrome
-    packages:
-    - google-chrome-stable
-  firefox: "latest"
+# addons:
+#   apt:
+#     sources:
+#       - google-chrome
+#     packages:
+#     - google-chrome-stable
+#   firefox: "latest"
 
 before_install:
 

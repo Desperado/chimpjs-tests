@@ -18,6 +18,6 @@ test:
     - mkdir -p $CIRCLE_TEST_REPORTS/cucumber/
 
   override:
-    - chimp --watch --browser=phantomjs --singleSnippetPerFile=1 --jsonOutput=cucumber/chimpTests.cucumber
+    - chimp --browser=phantomjs --singleSnippetPerFile=1 --jsonOutput=cucumber/chimpTests.cucumber
         # environment:
         #   CUCUMBER_JSON_OUTPUT: "$CIRCLE_TEST_REPORTS/cucumber/chimpTests.json"
