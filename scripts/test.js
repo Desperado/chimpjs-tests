@@ -11,7 +11,6 @@ function runChimp() {
   console.log('Running chimpJS');
   var childProcess = spawn('chimp',
      [
-       '--watch',
        '--browser=phantomjs',
        '--singleSnippetPerFile=1',
        '--jsonOutput=cucumber/chimpTests.cucumber'
@@ -29,20 +28,20 @@ function runChimp() {
   childProcess.stderr.on('data', function (line) {
     process.stderr.write(line);
   });
-  var exitAfterBuild = function exitAfterBuild(line) {
-    if (line.indexOf('steps') !== -1) {
-      childProcess.kill('SIGINT');
-      console.log('Finished running chimp');
-    } else if (
-       line.indexOf('failed to start') !== -1) {
-      childProcess.kill('SIGINT');
-      console.error('phantomJS failed to start, build failed');
-      throw new Error(line);
-    }
-  };
-  childProcess.stdout.on('data', exitAfterBuild);
-  childProcess.stderr.on('data', exitAfterBuild);
-}
+  // var exitAfterBuild = function exitAfterBuild(line) {
+  //   if (line.indexOf('steps') !== -1) {
+  //     childProcess.kill('SIGINT');
+  //     console.log('Finished running chimp');
+  //   } else if (
+  //      line.indexOf('failed to start') !== -1) {
+  //     childProcess.kill('SIGINT');
+  //     console.error('phantomJS failed to start, build failed');
+  //     throw new Error(line);
+  //   }
+  // };
+  // childProcess.stdout.on('data', exitAfterBuild);
+  // childProcess.stderr.on('data', exitAfterBuild);
+// }
 
 
 // childProcess.on('close', function (code) {
@@ -54,11 +53,11 @@ function runChimp() {
 //     }
 //   });
 
-// childProcess.on('close', function (code) {
-//   console.log('chimpJS exited with code ' + code);
-//   for (var i = 0; i < childProcess.length; i += 1) {
-//     childProcess[i].kill();
-//   }
-//   childProcess.exit(code);
-// });
+childProcess.on('close', function (code) {
+  console.log('chimpJS exited with code ' + code);
+  for (var i = 0; i < childProcess.length; i += 1) {
+    childProcess[i].kill();
+  }
+  childProcess.exit(code);
+});
 }

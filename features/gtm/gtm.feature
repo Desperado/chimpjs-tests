@@ -1,4 +1,4 @@
-#@ignore
+@ignore
 #@watch
 
 Feature: Automated testing of GTM tags in the datalayer

@@ -121,7 +121,7 @@ exports.pageObjects = {
     cruiseSearchButton: '//*[@value="Search Cruises »"]',
     keyword: '//*[@name="keyword"]',
     instantCallBack: '//*[@name="plid"]',
-    sidebar: '#block-fcl-click-to-call-fcl-click-to-call',
+    sidebar: '#click-to-call-sidebar > ul > li.contact-phone',
     mixedClassSidebar: '#click-to-call-sidebar',
     homeInternationalFlightsExpoint: '//div[@id="international-flights"]//select[starts-with(@id, "fcl-edit-air_ex_points_list")]',
     flightsAustraliaExpoint: '//div[@id="australia"]//select[starts-with(@id, "fcl-edit-air_ex_points_list")]',
