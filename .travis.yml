@@ -20,4 +20,4 @@ before_install:
 install:
 
 script:
-  - chimp --browser=chrome --singleSnippetPerFile=1 --jsonOutput=cucumber/chimpTests.cucumber
+  - chimp --browser=phantomjs --singleSnippetPerFile=1 --jsonOutput=cucumber/chimpTests.cucumber
