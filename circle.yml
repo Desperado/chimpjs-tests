@@ -19,6 +19,7 @@ test:
     - npm install
 
   override:
+    - selenium-standalone install --version=2.50.1 --baseURL=https://selenium-release.storage.googleapis.com --basePath=`npm config get prefix`/node_modules/chimp/node_modules/selenium-standalone/.selenium
     - chimp --browser=firefox --singleSnippetPerFile=1 --jsonOutput=cucumber/chimpTests.cucumber
         # environment:
         #   CUCUMBER_JSON_OUTPUT: "$CIRCLE_TEST_REPORTS/cucumber/chimpTests.json"
