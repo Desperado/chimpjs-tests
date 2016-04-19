@@ -6,6 +6,6 @@
   },
   "devDependencies": {
     "chimp": "^0.24.1",
-    "Selenium-standalone": "4.9.0"
+    "selenium-standalone": "4.9.0"
   }
 }
