@@ -20,11 +20,11 @@ Feature: Enquire on promotions
     Then I should see "results" in the url
     And I should see some "flightsDomesticOutboundProducts"
 
-  Scenario: Check product has travel dates selected and highlighted
-    Given I am on the "worldOnSale" page
-    Then I click the first product with travel dates
-    Then I should see the 'startDate' has a date
-    And I should see the datepicker has highlighted dates
+#  Scenario: Check product has travel dates selected and highlighted
+#    Given I am on the "worldOnSale" page
+#    Then I click the first product with travel dates
+#    Then I should see the 'startDate' has a date
+#    And I should see the datepicker has highlighted dates
 
 #  Scenario: As a customer, I want to be able to contact a consultant about fares on LCC's so that i can book them offline.
 #    Given that i am logged in as an administrator

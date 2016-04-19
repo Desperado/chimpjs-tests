@@ -5,6 +5,7 @@
     "test": "node ./scripts/test.js"
   },
   "devDependencies": {
-    "chimp": "^0.24.1"
+    "chimp": "^0.24.1",
+    "Selenium-standalone": "4.9.0"
   }
 }

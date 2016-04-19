@@ -16,6 +16,7 @@ dependencies:
 test:
   pre:
     - mkdir -p $CIRCLE_TEST_REPORTS/cucumber/
+    - npm install
 
   override:
     - chimp --browser=firefox --singleSnippetPerFile=1 --jsonOutput=cucumber/chimpTests.cucumber
