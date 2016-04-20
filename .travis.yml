@@ -1,17 +1,17 @@
-sudo: true
+sudo: false
 
 language: node_js
 
 node_js:
   - 5.2.0
 
-addons:
-  apt:
-    sources:
-      - google-chrome
-    packages:
-    - google-chrome-stable
-  firefox: "latest"
+# addons:
+#   apt:
+#     sources:
+#       - google-chrome
+#     packages:
+#     - google-chrome-stable
+#   firefox: "latest"
 
 before_install:
 
@@ -26,4 +26,4 @@ install:
 
 script:
   - selenium-standalone install --version=2.50.1 --baseURL=https://selenium-release.storage.googleapis.com --basePath=/home/travis/build/Emsiri/chimpjs-tests/node_modules/selenium-standalone/.selenium
-  - chimp --browser=chrome --singleSnippetPerFile=1 --jsonOutput=cucumber/chimpTests.json
+  - chimp --browser=firefox --singleSnippetPerFile=1 --jsonOutput=cucumber/chimpTests.json --screenshotsOnError=true
