@@ -152,7 +152,7 @@ exports.pageObjects = {
 
 };
 
-var baseUrl = 'http://acquiatest.flightcentre.com.au';
+var baseUrl = 'http://www.flightcentre.com.au';
 
 exports.siteSettings = {
 
