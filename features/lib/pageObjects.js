@@ -148,6 +148,8 @@ exports.pageObjects = {
     dialogueBox: '#cboxClose',
     wishlistAddButton: '.shortlist-product-add-btn',
     removeFromWishlist: '.shortlist-product-add-btn.mini.shortlisted',
+    productsDisplay: '#edit-items-per-page',
+    pagesDropdown: '//*[@name="page"]',
 
 
 };

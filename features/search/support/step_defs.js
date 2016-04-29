@@ -57,11 +57,6 @@ this.Given(/^I select the "([^"]*)" from the "([^"]*)" selector$/, function (val
   client.selectByValue(common.pageObjects[selector], value);
 });
 
-this.Then(/^I should see that the "([^"]*)" checkbox is checked$/, function (arg1, startCity) {
-  // Write the automation code here
-  pending();
-});
-
 this.When(/^I select the current day in the "([^"]*)" datepicker$/, function (selector) {
   browser.click(common.pageObjects[selector]);
   browser.waitForVisible('.ui-datepicker', 30000);

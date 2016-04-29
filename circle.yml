@@ -9,6 +9,10 @@ dependencies:
     - "node_modules"
     - "~/.npm"
 
+general:
+  artifacts:
+    - "$CIRCLE_ARTIFACTS/.screenshots"
+
     # Cache npm deps
     # Cache Selenium & ChromeDriver
     # - ./node_modules/.bin/chimp --path=content # there are no tests in content
@@ -20,6 +24,7 @@ test:
 
   override:
     # - selenium-standalone install --version=2.50.1 --baseURL=https://selenium-release.storage.googleapis.com --basePath=/home/ubuntu/chimpjs-tests/node_modules/chimp/node_modules/selenium-standalone/.selenium
-    - chimp --browser=phantomjs --singleSnippetPerFile=1 --jsonOutput=cucumber/chimpTests.json --screenshotsOnError=true
+    - chimp --browser=phantomjs --singleSnippetPerFile=1 --jsonOutput=cucumber/chimpTests.json --screenshotsOnError=true --screenshotsPath='$CIRCLE_ARTIFACTS/.screenshots'
+
         # environment:
           # CUCUMBER_JSON_OUTPUT: "$CIRCLE_TEST_REPORTS/cucumber/chimpTests.json"
