@@ -5,6 +5,10 @@ language: node_js
 node_js:
   - 5.2.0
 
+addons:
+  artifacts:
+    s3_region: "ap-southeast-2" # defaults to "us-east-1"  
+
 # addons:
 #   apt:
 #     sources:

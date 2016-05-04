@@ -179,8 +179,8 @@ Feature: Search the Web
 
   Scenario: Submit a cruise search from the homepage
     Given I am on the "home" page
-    And I click the "homeCruiseTab"
-    Then I select the "Europe" from the "homeCruiseDestination" selector
+    And I click the "homeCruisesTab"
+    Then I select the "Europe" from the "homeCruisesDestination" selector
     Then I click the "findCruisesButton"
     And I should see some "cruiseProducts"
 
