@@ -6,8 +6,8 @@ node_js:
   - 5.2.0
 
 addons:
-  artifacts:
-    s3_region: "ap-southeast-2" # defaults to "us-east-1"  
+  artifacts: true
+    s3_region: "ap-southeast-2" # defaults to "us-east-1"
 
 # addons:
 #   apt:
@@ -31,4 +31,4 @@ install:
 
 script:
   # - selenium-standalone install --version=2.50.1 --baseURL=https://selenium-release.storage.googleapis.com --basePath=/home/travis/build/Emsiri/chimpjs-tests/node_modules/selenium-standalone/.selenium
-  - chimp --browser=phantomjs --singleSnippetPerFile=1 --jsonOutput=cucumber/chimpTests.json --screenshotsOnError=true
+  - chimp --browser=phantomjs --singleSnippetPerFile=1 --jsonOutput=chimpTests.json --screenshotsOnError=true --screenshotsPath='.screenshots'

@@ -4,7 +4,7 @@ module.exports = function() {
 
 this.Given(/^I check the "([^"]*)" checkbox with jquery$/, function (checkbox) {
   client.execute(function(arg1){
-    return jQuery('[value="' + arg1 + '"]').click();
+    return jQuery('[value="' + arg1 + '"]').attr('checked', true);
   }, checkbox);
 });
 
@@ -17,7 +17,7 @@ this.Then(/^I should see that the "([^"]*)" checkbox is checked$/, function (che
 
 this.When(/^I uncheck the "([^"]*)" checkbox with jquery$/, function (checkbox) {
   client.execute(function(arg1){
-    return jQuery('[value="' + arg1 + '"]').click();
+    return jQuery('[value="' + arg1 + '"]').attr('checked', false);
   }, checkbox);
 });
 
