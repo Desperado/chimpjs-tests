@@ -1,5 +1,5 @@
 #@ignore
-@watch
+#@watch
 Feature: Facet Search automated test
   In order to test that facets correctly apply to searches
   As a user
@@ -27,10 +27,10 @@ Feature: Facet Search automated test
 
   Examples:
     | location        |
-    | holidays search |
-    | rail search     |
-    | tours search    |
-    | cruises search  |
+    | holidaysSearch |
+    | railSearch     |
+    | toursSearch    |
+    | cruisesSearch  |
 
   Scenario Outline: Checking the products display filter applies
     Given I am on the "<location>" page
@@ -42,10 +42,10 @@ Feature: Facet Search automated test
 
   Examples:
     | location        |
-    | holidays search |
-    | rail search     |
-    | tours search    |
-    | cruises search  |
+    | holidaysSearch |
+    | railSearch     |
+    | toursSearch    |
+    | cruisesSearch  |
 
   Scenario Outline: Submitting a search form with zero price facets applied
     Given I am on the "<location>" page
@@ -56,7 +56,7 @@ Feature: Facet Search automated test
 
   Examples:
     | location        |
-    | cruises search  |
+    | cruisesSearch  |
 
   Scenario Outline: Checking that unchecking a facet works correctly
     Given I am on the "<location>" page
@@ -70,7 +70,7 @@ Feature: Facet Search automated test
 
   Examples:
   | location        |
-  | holidays search |
-  | rail search     |
-  | tours search    |
-  | cruises search  |
+  | holidaysSearch |
+  | railSearch     |
+  | toursSearch    |
+  | cruisesSearch  |

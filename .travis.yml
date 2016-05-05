@@ -26,9 +26,10 @@ before_install:
   # - "export DISPLAY=:99.0"
 
   - npm install
+  - mkdir $HOME/.screenshots
 
 install:
 
 script:
   # - selenium-standalone install --version=2.50.1 --baseURL=https://selenium-release.storage.googleapis.com --basePath=/home/travis/build/Emsiri/chimpjs-tests/node_modules/selenium-standalone/.selenium
-  - chimp --browser=phantomjs --singleSnippetPerFile=1 --jsonOutput=chimpTests.json --screenshotsOnError=true --screenshotsPath='/home/travis/bin/artifacts/.screenshots'
+  - chimp --browser=phantomjs --singleSnippetPerFile=1 --jsonOutput=chimpTests.json --screenshotsOnError=true --screenshotsPath='$HOME/.screenshots'
