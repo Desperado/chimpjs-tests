@@ -36,9 +36,9 @@ Feature: Facet Search automated test
     Given I am on the "<location>" page
     When I select the "2" from the "pagesDropdown" selector
     And I wait for AJAX to finish
-    Then I select the "60" from the "productsDisplay" selector
+    Then I select the "30" from the "productsDisplay" selector
     And I wait for AJAX to finish
-    Then I should see that there are "60" "products"
+    Then I should see that there are "30" "products"
 
   Examples:
     | location        |
