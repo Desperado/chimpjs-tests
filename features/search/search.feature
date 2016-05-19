@@ -41,6 +41,7 @@ Feature: Search the Web
 
   Scenario Outline: Submit a search form from holidays search page
     Given I am on the "<location>" page
+    And I clear the cache
     And I select the "[1001 TO 3000]" from the "holidayPriceField" selector
     And I select the "Brisbane" from the "holidayStartCity" selector
     Then I fill in the "holidayDestination" field with "Paris"

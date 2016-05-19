@@ -11,6 +11,7 @@ Feature: Submit an enquiry
   	Then I fill out the enquiry form
   	And I select an exact date of today
   	When I click submit
+    Then I wait for a period of time
     Then I should be on the confirmation page
 
   Examples:
