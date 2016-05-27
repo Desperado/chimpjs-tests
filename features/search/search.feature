@@ -145,7 +145,7 @@ Feature: Search the Web
 
   Scenario: Submit a one-way flight search from the homepage
     Given I am on the "home" page
-    And I check the "homeOneWayCheckbox" checkbox with jquery
+    And I click on the "homeOneWayCheckbox" checkbox
     Then I fill in the "homeStartCity" field with "Sydney"
     Then I select "newSouthWalesAutocomplete" from the autocomplete box
     Then I fill in the "homeEndCity" field with "Paris"

@@ -1,3 +1,4 @@
+@ignore
 #@watch
 Feature: Automated testing of the shortlist feature
   In order to use the shortlist functionality
