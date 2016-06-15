@@ -38,7 +38,6 @@ Feature: Search the Web
     | location |
       | flights |
 
-
   Scenario Outline: Submit a search form from holidays search page
     Given I am on the "<location>" page
     And I clear the cache
@@ -54,7 +53,6 @@ Feature: Search the Web
     | location |
     | holidays |
 
-
   Scenario Outline: Submit a search form from rail search page
     Given I am on the "<location>" page
     And I select the "Asia" from the "railDestination" selector
@@ -66,7 +64,6 @@ Feature: Search the Web
     | location |
     | rail |
 
-  #@ignore
   Scenario Outline: Submit a search form the tours search page
     Given I am on the "<location>" page
     When I fill in the "tourDestination" field with "France"
@@ -74,14 +71,13 @@ Feature: Search the Web
 #    And I select the "[1501 TO 2000]" from the "tourPriceField" selector
 #    And I select the "[8 TO 14]" from the "tourDurationField" selector
 #    And I select the "EXODUS%20%28Adventure%20World%29" from the "tourCompanyField" selector
-    Then I click the "searchTourButton"
+    Then I click the "findToursButton"
     Then I should see "/tours/search" in the url
     And I should see some "products"
 
   Examples:
     | location |
     | tours |
-
 
   Scenario Outline: Submit a search from the cruise search page
     Given I am on the "<location>" page
@@ -124,7 +120,7 @@ Feature: Search the Web
 
   Scenario: Submit a search form from stores page
     Given I am on the "stores" page
-    Then I fill in the "storesLocation" field with "Queen Street, Brisbane QLD, Australia"
+    Then I fill in the "storesLocation" field with "Brisbane"
     And I click the "searchStoreButton"
     Then I follow "Flight Centre Cba Flagship Brisbane"
     Then I should see text "Flight Centre Cba Flagship Brisbane : Your local Flight Centre Store" in the "title"
