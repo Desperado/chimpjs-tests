@@ -19,6 +19,7 @@ exports.pageObjects = {
     queenslandAutocomplete: '//*[contains(text(), "Queensland, Australia")]',
     tamworthAutocomplete: '//*[contains(text(), "Tamworth")]',
     rockhamptonAutocomplete: '//*[contains(text(), "Rockhampton")]',
+    taiwanAutocomplete: '//*[contains(text(), "Taiwan")]',
     newsletterCheckbox: '#edit-newsletter',
     comments: '#edit-freetext--2',
     groups: '//*[@name="keyword" and @value="groups"]',
@@ -70,12 +71,11 @@ exports.pageObjects = {
     careersLocation: '#edit-submitted-location-state',
     findCareersButton: '//*[@value= "Find Careers"]',
     jobs: '.fcl-job-search',
-    insuranceRegion: '#area-181296',
-    insuranceCountry: '#country-181296',
-    insuranceStartDate: '//*[@name = "StartDate"]',
-    insuranceEndDate: '//*[@name = "EndDate"]',
-    insuranceAge: '#edit-age1',
-    insuranceSearchbutton: '//*[@value= "Get a Quote »"]',
+    insuranceCountry: '#edit-country',
+    insuranceStartDate: '//*[@name = "departureDate"]',
+    insuranceEndDate: '//*[@name = "returnDate"]',
+    insuranceAge: '#edit-travelerage-1',
+    insuranceContinueButton: '//*[@value= "CONTINUE"]',
     storesLocation: '#fcl-stores-google-places-box',
     searchStoreButton: '#fcl-stores-google-places-submit',
     title: 'h1',
@@ -150,6 +150,7 @@ exports.pageObjects = {
     removeFromWishlist: '.shortlist-product-add-btn.mini.shortlisted',
     productsDisplay: '#edit-items-per-page',
     pagesDropdown: '//*[@name="page"]',
+    autocomplete: '.ui-autocomplete',
 
 
 };

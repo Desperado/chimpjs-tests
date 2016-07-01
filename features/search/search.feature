@@ -108,15 +108,16 @@ Feature: Search the Web
     Then I should see "/careers/search" in the url
     And I should see some "jobs"
 
+  @watch
   Scenario: Submit a search form from travel insurance page
     Given I am on the "travelInsurance" page
-    Then I select the "Worldwide (inc. Americas and Africa)" from the "insuranceRegion" selector
-    And I select the "Japan" from the "insuranceCountry" selector
+    When I fill in the "insuranceCountry" field with "Taiwan"
+    And I select "taiwanAutocomplete" from the autocomplete box
     Then I select a "datePickerStartDate" from the "insuranceStartDate" datepicker
     Then I select a "datePickerEndDate" from the "insuranceEndDate" datepicker
     And I fill in the "insuranceAge" field with "25"
-    And I click the "insuranceSearchbutton"
-    Then I should see "/flight-centre" in the url
+    And I click the "insuranceContinueButton"
+    Then I should see "flightcentre-au-wl-staging.poweredbycovermore.com" in the url
 
   Scenario: Submit a search form from stores page
     Given I am on the "stores" page

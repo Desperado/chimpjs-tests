@@ -22,6 +22,10 @@ module.exports = function() {
     client.click(common.pageObjects[selector]);
   });
 
+  this.Then(/^I set the "([^"]*)" to display$/, function (selector) {
+    client.execute(jQuery(common.pageObjects[selector]).css('display', 'block'));
+  });
+
   this.Then(/^I should see "([^"]*)" in the title$/, function (text) {
     client.waitForExist('h1', 5000);
     var header = client.getText('h1');
