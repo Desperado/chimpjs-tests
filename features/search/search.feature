@@ -1,5 +1,4 @@
 #@ignore
-@watch
 Feature: Search the Web
 
   As a User
@@ -108,7 +107,6 @@ Feature: Search the Web
     Then I should see "/careers/search" in the url
     And I should see some "jobs"
 
-  @watch
   Scenario: Submit a search form from travel insurance page
     Given I am on the "travelInsurance" page
     When I fill in the "insuranceCountry" field with "Taiwan"

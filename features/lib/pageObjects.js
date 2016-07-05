@@ -200,6 +200,7 @@ exports.siteSettings = {
     seniorCruises: baseUrl + '/cruises/seniors',
     christmasMarketsCruises: baseUrl + '/cruises/be-inspired/christmas-markets',
     baliFlightsGeneralSearch: baseUrl + '/travel/flights/general-search/bali',
+    holidaysBali: baseUrl + '/holidays/bali',
     tourPackageLasAngeles: baseUrl + 'tours/los-angeles/3463101',
     worldOnSale: baseUrl + '/promotions/world-on-sale',
     holidaysSearch: baseUrl + '/holidays/search',
