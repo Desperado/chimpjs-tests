@@ -35,6 +35,7 @@ module.exports = function() {
   this.Then(/^I should see "([^"]*)" in the url$/, function (partial) {
     client.waitForExist('h2', 5000);
     var found = browser.url().value.indexOf(partial) > -1;
+    console.log(browser.url());
     expect(found).toBe(true);
   });
 
@@ -44,8 +45,10 @@ module.exports = function() {
   });
 
   this.Given(/^I wait for a period of time$/, function () {
-    browser.pause(1000);
+    browser.pause(10000);
   });
 
-
+  this.When(/^I switch tabs$/, function () {
+    browser.switchTab(2);
+  });
 }

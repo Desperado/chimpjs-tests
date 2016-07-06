@@ -3,7 +3,6 @@ Feature: Automated smoketest
   As a developer
   I need to be check each page for errors
 
-  @watch
   Scenario Outline: Checks that there are no browser errors
     Given I am on the "<location>" page
     Then I should see there are no errors

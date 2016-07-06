@@ -100,11 +100,13 @@ Feature: Search the Web
 
   Scenario: Submit a search form from careers page
     Given I am on the "careers" page
-    Then I fill in the "careersKeyword" field with "Sales"
-    And I select the "Sales/Travel Consultants" from the "careersCategory" selector
-    And I select the "Queensland" from the "careersLocation" selector
+    #Then I fill in the "careersKeyword" field with "Sales"
+    #And I select the "Sales/Travel Consultants" from the "careersCategory" selector
+    #And I select the "Queensland" from the "careersLocation" selector
     When I click the "findCareersButton"
-    Then I should see "/careers/search" in the url
+    #And I switch tabs
+    And I wait for a period of time
+    Then I should see "fctg.force.com/" in the url
     And I should see some "jobs"
 
   Scenario: Submit a search form from travel insurance page
@@ -115,7 +117,7 @@ Feature: Search the Web
     Then I select a "datePickerEndDate" from the "insuranceEndDate" datepicker
     And I fill in the "insuranceAge" field with "25"
     And I click the "insuranceContinueButton"
-    Then I should see "flightcentre-au-wl-staging.poweredbycovermore.com" in the url
+    Then I should see "flightcentre.covermore.com.au" in the url
 
   Scenario: Submit a search form from stores page
     Given I am on the "stores" page

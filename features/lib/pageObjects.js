@@ -69,7 +69,7 @@ exports.pageObjects = {
     careersKeyword: '#edit-submitted-description',
     careersCategory: '#edit-submitted-sector-name',
     careersLocation: '#edit-submitted-location-state',
-    findCareersButton: '//*[@value= "Find Careers"]',
+    findCareersButton: '.btn-green',
     jobs: '.fcl-job-search',
     insuranceCountry: '#edit-country',
     insuranceStartDate: '//*[@name = "departureDate"]',
