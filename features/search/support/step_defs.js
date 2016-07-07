@@ -72,7 +72,7 @@ this.Then(/^I check that the value of "([^"]*)" element matches that of "([^"]*)
 
 this.Given(/^I follow "([^"]*)"$/, function (link) {
   browser.waitForVisible('a=' + link, 30000);
-  browser.pause(500);
+  // browser.pause(500);
   browser.click('a=' + link);
 });
 
@@ -81,17 +81,10 @@ this.Then(/^I should see text "([^"]*)" in the "([^"]*)"$/, function (text, sele
   expect(el).toEqual(text);
 });
 
-
 this.Then(/^I should see a "([^"]*)" on the page$/, function (selector) {
   var el = browser.waitForVisible(common.pageObjects[selector]);
   expect(el).toBe(true);
 });
-
-this.Then(/^I should see text matching "([^"]*)"$/, function (arg1) {
-  // Write code here that turns the phrase above into concrete actions
-  pending();
-});
-
 
 this.Then(/^I select a "([^"]*)" from the "([^"]*)" datepicker$/, function (date, selector) {
   browser.click(common.pageObjects[selector]);

@@ -35,7 +35,6 @@ module.exports = function() {
   this.Then(/^I should see "([^"]*)" in the url$/, function (partial) {
     client.waitForExist('h2', 5000);
     var found = browser.url().value.indexOf(partial) > -1;
-    console.log(browser.url());
     expect(found).toBe(true);
   });
 

@@ -8,12 +8,18 @@ exports.pageObjects = {
     adults: '#edit-numadults',
     children: '#edit-numchildren',
     keyword: '.fc-sf-enquiry-form [name=keyword]',
+    firstName: '#edit-firstname--2',
+    lastName: '#edit-lastname--2',
+    postcode: '#edit-postcode--2',
+    phone: '#edit-phone--2',
+    email: '#edit-email--2',
     firstNameError: '.edit-firstname--2-error',
     lastNameError: '.edit-lastname--2-error',
     phoneError: '.edit-phone--2-error',
     postcodeError: '.edit-postcode--2-error',
     budget: '.feature-button-budget',
     budgetField: '#edit-budget',
+    enquirySubmitButton: '//*[@value= "GET YOUR QUOTE"]',
     newSouthWalesAutocomplete: '//*[contains(text(), "Sydney Airport")]',
     brisbaneAutocomplete: '//*[contains(text(), "Brisbane Airport")]',
     queenslandAutocomplete: '//*[contains(text(), "Queensland, Australia")]',
@@ -151,7 +157,7 @@ exports.pageObjects = {
     productsDisplay: '#edit-items-per-page',
     pagesDropdown: '//*[@name="page"]',
     autocomplete: '.ui-autocomplete',
-
+    travellers: '#edit-passengers > div',
 
 };
 
@@ -209,6 +215,7 @@ exports.siteSettings = {
     careersSearch: baseUrl + '/careers/search',
     cruisesSearch: baseUrl + '/cruises/search',
     wishlist: baseUrl + '/wishlist',
+    enquiryConfirmation: baseUrl + '/contact-us/enquiry-confirmation',
 
 };
 

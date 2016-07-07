@@ -2,24 +2,20 @@ var common = require("../../lib/pageObjects.js")
 
 module.exports = function() {
 
-this.Given(/^I have visited contact us$/, function () {
-  browser.url('http://www.flightcentre.com.au/contact-us?baba');
-});
-
 this.Then(/^I fill out the enquiry form$/, function () {
   client.waitForExist("#edit-firstname--2");
-  client.setValue('#edit-departing', 'Brisbane');
-  client.setValue('#edit-destination', 'Sydney');
-  client.setValue('#edit-freetext--2', 'test.mavericks');
-  client.setValue('#edit-firstname--2', 'test.mavericks');
-  client.setValue('#edit-lastname--2', 'test.mavericks');
-  client.setValue('#edit-postcode--2', '4000');
-  client.setValue('#edit-phone--2', '0400000000');
-  client.setValue('#edit-email--2', 'fcl.websolutions@gmail.com');
+  client.setValue(common.pageObjects.enquiryDeparting, 'Brisbane');
+  client.setValue(common.pageObjects.enquiryDestination, 'Sydney');
+  client.setValue(common.pageObjects.comments, 'test.mavericks');
+  client.setValue(common.pageObjects.firstName, 'test.mavericks');
+  client.setValue(common.pageObjects.lastName, 'test.mavericks');
+  client.setValue(common.pageObjects.postcode, '4000');
+  client.setValue(common.pageObjects.phone, '0400000000');
+  client.setValue(common.pageObjects.email, 'fcl.websolutions@gmail.com');
 });
 
 this.Then(/^I click submit$/, function () {
-  client.click('.fc-sf-enquiry-form > div > div > .form-submit');
+  client.click(common.pageObjects.enquirySubmitButton);
 });
 
 this.When(/^I search for "([^"]*)"$/, function (searchTerm) {
@@ -57,10 +53,11 @@ this.Then(/^I should not see "([^"]*)" is a required field$/, function (selector
   expect(found).not.toBe(true);
 });
 
-this.Given(/^I set the "([^"]*)" dropdown to display$/, function (arg1) {
-  client.execute(function(){
-    document.querySelector('#edit-passengers > div').style.display= 'block';
-  })
+this.Given(/^I set the "([^"]*)" dropdown to display$/, function (selector) {
+  var el = common.pageObjects[selector];
+  client.execute(function(arg1){
+    document.querySelector(arg1).style.display= 'block';
+  }, el)
 });
 
 this.Then(/^the "([^"]*)" hidden field should contain the value "([^"]*)"$/, function (selector, val) {
@@ -89,7 +86,7 @@ this.Then(/^I should be on the confirmation page$/, function () {
   client.waitForExist('h1', 30000);
   var header = client.getText('h1');
   expect(header).toContain('Confirmation');
-  var found = browser.url().value.indexOf('/contact-us/enquiry-confirmation') > -1;
+  var found = browser.url().value.indexOf(common.siteSettings.enquiryConfirmation) > -1;
   expect(found).toBe(true);
 });
 

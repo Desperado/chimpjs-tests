@@ -7,11 +7,13 @@ module.exports = function() {
     // console.log(logs);
     // console.log(client.log('browser'));
     // expect(logs).not.toContain('WARNING');
+    // logLevelSevere = false;
+    // if (client.log('level') === 'SEVERE') {
+    //   console.log('log level SEVERE detected')
+    //   logLevelSevere = true;
+    // }
+    // expect(logLevelSevere).toBe(false);
     expect(logs).not.toContain('SEVERE');
-
-    // var logs = client.log('browser');
-    // expect(logs).not.toContain('severe');
-    // console.log(logs);   // -> "org.openqa.selenium.NoSuchElementException"
 
   });
 

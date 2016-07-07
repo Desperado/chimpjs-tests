@@ -1,3 +1,4 @@
+@ignore
 Feature: Automated smoketest
   In order to ensure there are no errors
   As a developer
