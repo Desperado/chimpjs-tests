@@ -5,37 +5,38 @@ Feature: Search the Web
   I want to be able to search for flights
   So I can see some products
 
-  Scenario Outline: Search for domestic flights
-    Given I am on the "<location>" page
-    Then I fill in the search departure field with "brisbane"
-    Then I select "brisbaneAutocomplete" from the autocomplete box
-    And I fill in the search destination field "sydney"
-    Then I select "newSouthWalesAutocomplete" from the autocomplete box
-    Then I select a "datePickerStartDate" from the "flightsStartDate" datepicker
-    Then I select a "datePickerEndDate" from the "flightsEndDate" datepicker
-    Then I click the "findFlightsButton"
-    Then I should be on the flight "outBoundFlightsHeader" page
-    And I should see some "flightsDomesticProducts"
+  @watch
+  Scenario: I set the state for tests
+    Given I am on the "home" page
+    Then I setup the tests
 
-  Examples:
-    | location |
-    | flights |
+  @watch
+  Scenario: Search for domestic return flights
+    Given I am on the "flights" page
+    Then I search for a flight from "Brisbane Airport" to "Sydney Airport" from the "datePickerStartDate" to the "datePickerEndDate"
+    Then I should be on the flight "flightsResults" page
+    And I should see some "flightsProducts"
 
-  Scenario Outline: Search for one way domestic flights
-    Given I am on the "<location>" page
-    And I click the "flightsOneWayCheckbox"
-    Then I fill in the search departure field with "brisbane"
-    Then I select "brisbaneAutocomplete" from the autocomplete box
-    And I fill in the search destination field "sydney"
-    Then I select "newSouthWalesAutocomplete" from the autocomplete box
-    Then I select a "datePickerStartDate" from the "flightsStartDate" datepicker
-    Then I click the "findFlightsButton"
-    Then I should be on the flight "outBoundFlightsHeader" page
-    And I should see some "flightsDomesticProducts"
+  @watch
+  Scenario: Search for international return flights from the homepage
+    Given I am on the "home" page
+    Then I search for a flight from "Sydney Airport" to "Denpasar-Bali" from the "datePickerStartDate" to the "datePickerEndDate"
+    Then I should be on the flight "flightsResults" page
+    And I should see some "flightsProducts"
 
-  Examples:
-    | location |
-      | flights |
+  @watch
+  Scenario: Search for international one-way flights from the homepage
+    Given I am on the "home" page
+    Then I search for a one-way flight from "Brisbane Airport" to "Denpasar-Bali" on the "datePickerStartDate"
+    Then I should be on the flight "flightsResults" page
+    And I should see some "flightsProducts"
+
+  @watch
+  Scenario: Search for domestic one-way flights
+    Given I am on the "flights" page
+    Then I search for a one-way flight from "Brisbane Airport" to "Sydney Airport" on the "datePickerStartDate"
+    Then I should be on the flight "flightsResults" page
+    And I should see some "flightsProducts"
 
   Scenario Outline: Submit a search form from holidays search page
     Given I am on the "<location>" page
@@ -67,9 +68,6 @@ Feature: Search the Web
     Given I am on the "<location>" page
     When I fill in the "tourDestination" field with "France"
     Then I select "franceAutocomplete" from the autocomplete box
-#    And I select the "[1501 TO 2000]" from the "tourPriceField" selector
-#    And I select the "[8 TO 14]" from the "tourDurationField" selector
-#    And I select the "EXODUS%20%28Adventure%20World%29" from the "tourCompanyField" selector
     Then I click the "findToursButton"
     Then I should see "/tours/search" in the url
     And I should see some "products"
@@ -120,31 +118,6 @@ Feature: Search the Web
     Then I follow "Flight Centre Cba Flagship Brisbane"
     Then I should see text "Flight Centre Cba Flagship Brisbane : Your local Flight Centre Store" in the "title"
     And I should see a "storeMap" on the page
-
-  Scenario: Submit a flight search from the homepage
-    Given I am on the "home" page
-    Then I fill in the "homeStartCity" field with "Sydney"
-    Then I select "newSouthWalesAutocomplete" from the autocomplete box
-    Then I fill in the "homeEndCity" field with "Paris"
-    Then I select "franceAutocomplete" from the autocomplete box
-    Then I select a "datePickerStartDate" from the "homeStartDate" datepicker
-    Then I select a "datePickerEndDate" from the "homeEndDate" datepicker
-    And I click the "findFlightsButton"
-    Then I should see "/results" in the url
-    And I should see some "flightsInternationalOutBoundProducts"
-#    And I should see some "flightsInternationalInBoundProducts"
-
-  Scenario: Submit a one-way flight search from the homepage
-    Given I am on the "home" page
-    And I click on the "homeOneWayCheckbox" checkbox
-    Then I fill in the "homeStartCity" field with "Sydney"
-    Then I select "newSouthWalesAutocomplete" from the autocomplete box
-    Then I fill in the "homeEndCity" field with "Paris"
-    Then I select "franceAutocomplete" from the autocomplete box
-    Then I select a "datePickerStartDate" from the "homeStartDate" datepicker
-    And I click the "findFlightsButton"
-    Then I should see "/results" in the url
-    And I should see some "flightsInternationalOutBoundProducts"
 
   Scenario: Submit a package search from the homepage
     Given I am on the "home" page

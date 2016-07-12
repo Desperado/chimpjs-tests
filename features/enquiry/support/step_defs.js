@@ -18,11 +18,6 @@ this.Then(/^I click submit$/, function () {
   client.click(common.pageObjects.enquirySubmitButton);
 });
 
-this.When(/^I search for "([^"]*)"$/, function (searchTerm) {
-  browser.setValue('input[name="q"]', searchTerm);
-  browser.keys(['Enter']);
-});
-
 this.Then(/^I see "([^"]*)"$/, function (link) {
   browser.waitForExist('a=' + link);
 });
@@ -55,8 +50,8 @@ this.Then(/^I should not see "([^"]*)" is a required field$/, function (selector
 
 this.Given(/^I set the "([^"]*)" dropdown to display$/, function (selector) {
   var el = common.pageObjects[selector];
-  client.execute(function(arg1){
-    document.querySelector(arg1).style.display= 'block';
+  client.execute(function(arg){
+    document.querySelector(arg).style.display= 'block';
   }, el)
 });
 

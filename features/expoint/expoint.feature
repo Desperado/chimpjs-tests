@@ -82,7 +82,7 @@ Feature: Automated testing of ex point selectors
     And I fill in the "flightsStartCity" field with "rockhampton"
     And I select "rockhamptonAutocomplete" from the autocomplete box
     Then I fill in the "flightsEndCity" field with "sydney"
-    And I select "newSouthWalesAutocomplete" from the autocomplete box
+    And I select "sydneyAirport" from the autocomplete box
     Then I select a "datePickerStartDate" from the "flightsStartDate" datepicker
     Then I select a "datePickerEndDate" from the "flightsEndDate" datepicker
     Then I click the "findFlightsButton"

@@ -14,6 +14,20 @@ module.exports = function() {
     });
   });
 
+  this.Then(/^I setup the tests$/, function () {
+    browser.addCommand("uiAutocomplete", function (selector){
+      browser.pause(5000);
+      client.execute(function(){
+        jQuery('.ui-autocomplete').css('display', 'block');
+      })
+      browser.pause(5000);
+      client.click('//*[contains(text(), "' + selector + '")]');
+    });
+    client.execute(function(){
+      localStorage.clear();
+    });
+  });
+
   this.Then(/^I fill in the "([^"]*)" field with "([^"]*)"$/, function (selector, value) {
     client.setValue(common.pageObjects[selector], value);
   });
